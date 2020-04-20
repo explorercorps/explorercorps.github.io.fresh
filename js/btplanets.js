@@ -37,17 +37,33 @@ define(['js/lib/d3.min'], function(d3) {
 		//Colors
 		statecolors : new Map()
 			.set('terran-union', '#cccccc')
+			.set('rim-worlds-empire', '#c8c8c8')
+			.set('duchy-of-antares', '#c8c8c8')
 			.set('independent-world', '#777777')
-			.set('capellan_hegemony', '#426e33')
-			.set('interstellar-governments-council', '#002d72')
-			.set('mcallister-shogunate', '#ecb2b5')
-			.set('capellan-hegemony', '#ffd1d4')
+			.set('capellan-hegemony', '#426e33')
+			.set('interstellar-governments-council', '#5b92e5')
+			.set('mcallister-shogunate', '#cd0000')
+			.set('tikonov-union', '#ffd1d4')
 			.set('peoples-state-of-andurien', '#c9c5e2')
 			.set('filtvelt-coalition', '#ffc9a3')
-			.set('united-outworlds-republic', '#e4acaf')
+			.set('united-outworlds-republic', '#ffae00')
 			.set('marian-hegemony', '#e0c7a7')
 			.set('kashamarka-antisuyu', '#fff0a3')
 			.set('defhes-consolidant', '#d9e3ed')
+			.set('crucis-pact', '#9c6127')
+			.set('solar-union', '#a3a3ff')
+			.set('kilbourne-commonwealth', '#c5eed2')
+			.set('brethren-of-the-stars', '#cce6e4')
+			.set('lancaster-authority', '#ddccdd')
+			.set('rengo-directorate', '#b3d2b3')
+			.set('hartshill-federal-alliance', '#e6c9cf')
+			.set('lexington-concord', '#a4c1d0')
+			.set('tamar-pact', '#d5ada3')
+			.set('peripheral-union', '#eda6f9')
+			.set('canaan-accord', '#bcbfa8')
+			.set('rim-commonality', '#a7c2aa')
+			.set('unity-of-bellatrix', '#cbe6c3')
+			.set('marik-commonwealth', '#64508d')
 			.set('no_record','#444')
 			.set('?','#444')
 			.set('default','#aaa'),
@@ -221,7 +237,7 @@ define(['js/lib/d3.min'], function(d3) {
 						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
 					.attr('fill', function (d) {
-						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-')
 
 						const color = me.statecolors.get(affil);
 						if (color == null){
