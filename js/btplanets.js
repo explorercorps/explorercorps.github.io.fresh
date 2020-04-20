@@ -53,7 +53,7 @@ define(['js/lib/d3.min'], function(d3) {
 					return console.warn(error);
 				}
 				this.borders = json;
-				d3.json('./data/slacker-systems.json', function (error, json) {
+				d3.json('./data/systems.json', function (error, json) {
 					var cur, nb;
 					if(error) {
 						return console.warn(error);
@@ -225,7 +225,7 @@ define(['js/lib/d3.min'], function(d3) {
 						return d.type.toLowerCase() == 'capital';
 					})
 					.classed('periphery-capital', function (d) {
-						return d.type.toLowerCase() == 'minor'
+						return d.type.toLowerCase() == 'major'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
