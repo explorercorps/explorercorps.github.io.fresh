@@ -6,7 +6,6 @@ define(['js/lib/d3.min'], function(d3) {
 		PLANET_RADIUS : 4,
 		ZOOM_FACTOR_MIN : 0.5,
 		ZOOM_FACTOR_MAX : 40,
-
 		// browser detection (edge)
 		isEdge : false,
 
@@ -34,6 +33,11 @@ define(['js/lib/d3.min'], function(d3) {
 		pxPerLy : 1, // pixel per lightyear for the unzoomed view
 		startTranslate : [0, 0], // translation coordinates at last zoom start
 		labelRepositionTimeout : null,
+
+		//Colors
+		statecolors : new Map()
+			.set('capellan_confederation', '#426e33')
+			.set('uninhabited','#ccc'),
 
 		// functions
 		/**
@@ -205,6 +209,16 @@ define(['js/lib/d3.min'], function(d3) {
 							return 'hidden-system';
 						}
 						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
+					})
+					.attr('fill', function (d) {
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+
+						const color = me.statecolors.get(affil);
+						if (color == null){
+							return me.statecolors.get('uninhabited');
+						} else {
+							return color;
+						}
 					})
 					.classed('planet', true)
 					.classed('capital', function (d) {
