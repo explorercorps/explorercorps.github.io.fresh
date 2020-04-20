@@ -62,8 +62,7 @@ define(['js/lib/d3.min'], function(d3) {
 					this.capitals = [];
 					for(var i = 0, len = this.planets.length; i < len; i++) {
 						this.planets[i].index = i;
-						cur = this.planets[i].type.toLowerCase();
-						if(	cur === 'capital') {
+						if(this.planets[i].type === 'Capital') {
 							this.planets[i].isCapital = true;
 							this.capitals.push(this.planets[i]);
 						}
@@ -223,10 +222,10 @@ define(['js/lib/d3.min'], function(d3) {
 					})
 					.classed('planet', true)
 					.classed('capital', function (d) {
-						return d.type.toLowerCase() === 'capital';
+						return d.type.toLowerCase() == 'capital';
 					})
 					.classed('periphery-capital', function (d) {
-						return d.type.toLowerCase() === 'minor'
+						return d.type.toLowerCase() == 'minor'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
@@ -295,21 +294,11 @@ define(['js/lib/d3.min'], function(d3) {
 						return d.affiliation.toLowerCase().indexOf('clan') !== -1;
 					})
 					.classed('capital', function (d) {
-						var name = d.name.toLowerCase();
-						return name === 'sian' ||
-							name === 'terra' ||
-							name === 'luthien' ||
-							name === 'new avalon' ||
-							name === 'atreus' ||
-							name === 'tharkad';
+						return d.type == 'Capital'
 					})
 					.classed('periphery-capital', function (d) {
 						var name = d.name.toLowerCase();
-						return name === 'taurus' ||
-							name === 'canopus' ||
-							name === 'alphard' ||
-							name === 'oberon' ||
-							name === 'alpheratz';
+						return d.type == 'Major'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
