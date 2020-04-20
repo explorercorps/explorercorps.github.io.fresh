@@ -6,7 +6,6 @@ define(['js/lib/d3.min'], function(d3) {
 		PLANET_RADIUS : 4,
 		ZOOM_FACTOR_MIN : 0.5,
 		ZOOM_FACTOR_MAX : 40,
-
 		// browser detection (edge)
 		isEdge : false,
 
@@ -35,6 +34,14 @@ define(['js/lib/d3.min'], function(d3) {
 		startTranslate : [0, 0], // translation coordinates at last zoom start
 		labelRepositionTimeout : null,
 
+		//Colors
+		statecolors : new Map()
+			.set('capellan_hegemony', '#426e33')
+
+			.set('no_record','#444')
+			.set('?','#444')
+			.set('default','#aaa'),
+
 		// functions
 		/**
 		 * Initialize the object and its components
@@ -55,10 +62,7 @@ define(['js/lib/d3.min'], function(d3) {
 					this.capitals = [];
 					for(var i = 0, len = this.planets.length; i < len; i++) {
 						this.planets[i].index = i;
-						cur = this.planets[i].name.toLowerCase();
-						if(	cur === 'sian' || cur === 'luthien'
-							|| cur === 'new avalon' || cur === 'atreus'
-							|| cur === 'tharkad' || cur === 'terra') {
+						if(this.planets[i].type === 'Capital') {
 							this.planets[i].isCapital = true;
 							this.capitals.push(this.planets[i]);
 						}
@@ -206,23 +210,22 @@ define(['js/lib/d3.min'], function(d3) {
 						}
 						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
+					.attr('fill', function (d) {
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+
+						const color = me.statecolors.get(affil);
+						if (color == null){
+							return me.statecolors.get('default');
+						} else {
+							return color;
+						}
+					})
 					.classed('planet', true)
 					.classed('capital', function (d) {
-						var name = d.name.toLowerCase();
-						return name === 'sian' ||
-							name === 'terra' ||
-							name === 'luthien' ||
-							name === 'new avalon' ||
-							name === 'atreus' ||
-							name === 'tharkad';
+						return d.type.toLowerCase() == 'capital';
 					})
 					.classed('periphery-capital', function (d) {
-						var name = d.name.toLowerCase();
-						return name === 'taurus' ||
-							name === 'canopus' ||
-							name === 'alphard' ||
-							name === 'oberon' ||
-							name === 'alpheratz';
+						return d.type.toLowerCase() == 'major'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
@@ -259,6 +262,16 @@ define(['js/lib/d3.min'], function(d3) {
 						}
 						return d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
+					.attr('stroke', function (d) {
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+
+						const color = me.statecolors.get(affil);
+						if (color == null){
+							return me.statecolors.get('default');
+						} else {
+							return color;
+						}
+					})
 					.classed('capital', true)
 					.attr('transform', me.transformers.planetCircle.bind(me));
 
@@ -281,21 +294,11 @@ define(['js/lib/d3.min'], function(d3) {
 						return d.affiliation.toLowerCase().indexOf('clan') !== -1;
 					})
 					.classed('capital', function (d) {
-						var name = d.name.toLowerCase();
-						return name === 'sian' ||
-							name === 'terra' ||
-							name === 'luthien' ||
-							name === 'new avalon' ||
-							name === 'atreus' ||
-							name === 'tharkad';
+						return d.type == 'Capital'
 					})
 					.classed('periphery-capital', function (d) {
 						var name = d.name.toLowerCase();
-						return name === 'taurus' ||
-							name === 'canopus' ||
-							name === 'alphard' ||
-							name === 'oberon' ||
-							name === 'alpheratz';
+						return d.type == 'Major'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
