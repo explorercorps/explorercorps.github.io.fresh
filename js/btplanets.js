@@ -36,8 +36,11 @@ define(['js/lib/d3.min'], function(d3) {
 
 		//Colors
 		statecolors : new Map()
-			.set('capellan_confederation', '#426e33')
-			.set('uninhabited','#ccc'),
+			.set('capellan_hegemony', '#426e33')
+
+			.set('no_record','#444')
+			.set('?','#444')
+			.set('default','#aaa'),
 
 		// functions
 		/**
@@ -50,7 +53,7 @@ define(['js/lib/d3.min'], function(d3) {
 					return console.warn(error);
 				}
 				this.borders = json;
-				d3.json('./data/systems.json', function (error, json) {
+				d3.json('./data/slacker-systems.json', function (error, json) {
 					var cur, nb;
 					if(error) {
 						return console.warn(error);
@@ -59,10 +62,8 @@ define(['js/lib/d3.min'], function(d3) {
 					this.capitals = [];
 					for(var i = 0, len = this.planets.length; i < len; i++) {
 						this.planets[i].index = i;
-						cur = this.planets[i].name.toLowerCase();
-						if(	cur === 'sian' || cur === 'luthien'
-							|| cur === 'new avalon' || cur === 'atreus'
-							|| cur === 'tharkad' || cur === 'terra') {
+						cur = this.planets[i].type.toLowerCase();
+						if(	cur === 'capital') {
 							this.planets[i].isCapital = true;
 							this.capitals.push(this.planets[i]);
 						}
@@ -215,28 +216,17 @@ define(['js/lib/d3.min'], function(d3) {
 
 						const color = me.statecolors.get(affil);
 						if (color == null){
-							return me.statecolors.get('uninhabited');
+							return me.statecolors.get('default');
 						} else {
 							return color;
 						}
 					})
 					.classed('planet', true)
 					.classed('capital', function (d) {
-						var name = d.name.toLowerCase();
-						return name === 'sian' ||
-							name === 'terra' ||
-							name === 'luthien' ||
-							name === 'new avalon' ||
-							name === 'atreus' ||
-							name === 'tharkad';
+						return d.type.toLowerCase() === 'capital';
 					})
 					.classed('periphery-capital', function (d) {
-						var name = d.name.toLowerCase();
-						return name === 'taurus' ||
-							name === 'canopus' ||
-							name === 'alphard' ||
-							name === 'oberon' ||
-							name === 'alpheratz';
+						return d.type.toLowerCase() === 'minor'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
@@ -272,6 +262,16 @@ define(['js/lib/d3.min'], function(d3) {
 							return 'clan';
 						}
 						return d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
+					})
+					.attr('stroke', function (d) {
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+
+						const color = me.statecolors.get(affil);
+						if (color == null){
+							return me.statecolors.get('default');
+						} else {
+							return color;
+						}
 					})
 					.classed('capital', true)
 					.attr('transform', me.transformers.planetCircle.bind(me));
