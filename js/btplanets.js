@@ -81,7 +81,7 @@ define(['js/lib/d3.min'], function(d3) {
 			.set('royal-protectorate-of-harsefeld', '#702963')
 			.set('hyades-rim-republic', '#c5cad1')
 			.set('duchy-of-oriente','#d2ddc4')
-			.set('no_record','#444')
+			.set('no-record','#444')
 			.set('?','#444')
 			.set('default','#aaa'),
 
@@ -306,7 +306,7 @@ define(['js/lib/d3.min'], function(d3) {
 						return d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
 					.attr('stroke', function (d) {
-						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-')
 
 						const color = me.statecolors.get(affil);
 						if (color == null){
