@@ -36,8 +36,18 @@ define(['js/lib/d3.min'], function(d3) {
 
 		//Colors
 		statecolors : new Map()
+			.set('terran-union', '#cccccc')
+			.set('independent-world', '#777777')
 			.set('capellan_hegemony', '#426e33')
-
+			.set('interstellar-governments-council', '#002d72')
+			.set('mcallister-shogunate', '#ecb2b5')
+			.set('capellan-hegemony', '#ffd1d4')
+			.set('peoples-state-of-andurien', '#c9c5e2')
+			.set('filtvelt-coalition', '#ffc9a3')
+			.set('united-outworlds-republic', '#e4acaf')
+			.set('marian-hegemony', '#e0c7a7')
+			.set('kashamarka-antisuyu', '#fff0a3')
+			.set('defhes-consolidant', '#d9e3ed')
 			.set('no_record','#444')
 			.set('?','#444')
 			.set('default','#aaa'),
