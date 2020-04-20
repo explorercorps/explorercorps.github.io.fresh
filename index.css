@@ -1110,6 +1110,34 @@ svg g.planet-circles path.draconis-combine.capital {
 	stroke: #a8281b;
 	/*fill: rgba(245,60,43,1);*/
 }
+svg g.planet-circles circle.terran-union {
+	fill: #cccccc;
+}
+
+svg g.planet-circles circle.interstellar-governments-council {
+	fill: #002d72;
+}
+
+svg g.planet-circles circle.mcallister-shogunate {
+	fill: #ecb2b5;
+}
+
+svg g.planet-circles circle.capellan-hegemony {
+	fill: #ffd1d4;
+}
+
+svg g.planet-circles circle.peoples-state-of-andurien {
+	fill: #c9c5e2;
+}
+
+svg g.planet-circles circle.filtvelt-coalition {
+	fill: #ffc9a3;
+}
+
+svg g.planet-circles circle.united-outworlds-republic {
+	fill: #e4acaf;
+}
+
 svg g.planet-circles circle.federated-suns {
 	fill: #9c6127;
 }
@@ -1175,7 +1203,10 @@ svg g.planet-circles circle.oberon-confederation {
 svg g.planet-circles path.oberon-confederation.capital {
 	stroke: #C79F00
 }
-svg g.planet-circles circle.independent-world,
+svg g.planet-circles circle.independent-world {
+	fill: #777777
+}
+
 svg g.planet-circles circle.aurigan-coalition,
 svg g.planet-circles circle.circinus-federation,
 svg g.planet-circles circle.illyrian-palatinate,
