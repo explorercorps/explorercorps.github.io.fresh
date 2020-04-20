@@ -38,7 +38,7 @@ define(['js/lib/d3.min'], function(d3) {
 		statecolors : new Map()
 			.set('terran-union', '#cccccc')
 			.set('independent-world', '#777777')
-			.set('capellan_hegemony', '#426e33')
+			.set('capellan-hegemony', '#426e33')
 			.set('interstellar-governments-council', '#002d72')
 			.set('mcallister-shogunate', '#ecb2b5')
 			.set('capellan-hegemony', '#ffd1d4')
@@ -221,7 +221,7 @@ define(['js/lib/d3.min'], function(d3) {
 						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
 					.attr('fill', function (d) {
-						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-')
 
 						const color = me.statecolors.get(affil);
 						if (color == null){
