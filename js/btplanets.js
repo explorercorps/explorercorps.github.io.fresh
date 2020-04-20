@@ -66,7 +66,7 @@ define(['js/lib/d3.min'], function(d3) {
 			.set('marik-commonwealth', '#64508d')
 			.set('saonara-dominion', '#d7c1d8')
 			.set('aurigan-coalition', '#914839')
-			.set('no_record','#444')
+			.set('no-record','#444')
 			.set('?','#444')
 			.set('default','#aaa'),
 
@@ -291,7 +291,7 @@ define(['js/lib/d3.min'], function(d3) {
 						return d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
 					.attr('stroke', function (d) {
-						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '_')
+						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-')
 
 						const color = me.statecolors.get(affil);
 						if (color == null){
