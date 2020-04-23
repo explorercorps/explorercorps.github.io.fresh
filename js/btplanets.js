@@ -223,7 +223,6 @@ define(['js/lib/d3.min'], function(d3) {
 						return d.name + ' ' + d.type;
 					});
 
-
 			var circleGroup = me.svg.select('g.planet-circles');
 
 			var circles = circleGroup.selectAll('circle')
@@ -647,10 +646,9 @@ define(['js/lib/d3.min'], function(d3) {
 				return 'translate('+this.xScale(d.x || 0)+','+this.yScale(d.y || 0) + ') scale('+this.zoom.scale()*this.pxPerLy+')';
 			},
 			labelGroup : function (d, i) {
+				//i really have no idea how any of this works
 				var x = this.xScale(d.centroid[0]);
 				var y = this.yScale(d.centroid[1]);
-				return 'transform:translate('+x+'px,'+y+'px)';
-				
 				if(this.isEdge) {
 					return 'translate('+x+','+y+')'
 				} else {
