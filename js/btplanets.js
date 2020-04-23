@@ -220,14 +220,6 @@ define(['js/lib/d3.min'], function(d3) {
 							.attr('x', 0)
 							.attr('y', succ ? 28 : 14)
 							.text(d.display);
-
-						if(d.rulers) {
-							g.append('text')
-								//.attr('x', succ ? 62 : 32)
-								.attr('x', 0)
-								.attr('y', succ ? 48: 30)
-								.text(d.rulers);
-						}
 						return d.name + ' ' + d.type;
 					});
 
@@ -657,6 +649,8 @@ define(['js/lib/d3.min'], function(d3) {
 			labelGroup : function (d, i) {
 				var x = this.xScale(d.centroid[0]);
 				var y = this.yScale(d.centroid[1]);
+				return 'transform:translate('+x+'px,'+y+'px)';
+				
 				if(this.isEdge) {
 					return 'translate('+x+','+y+')'
 				} else {
