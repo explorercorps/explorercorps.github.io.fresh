@@ -98,7 +98,6 @@ define(['js/lib/d3.min'], function(d3) {
 							this.states[i].x = this.states[i].x/this.states[i].planets;
 							this.states[i].y = this.states[i].y/this.states[i].planets;
 						}
-						console.log(this.states);
 
 						this.selectedPlanets = [];
 						this.instantiateComponents();
@@ -199,10 +198,15 @@ define(['js/lib/d3.min'], function(d3) {
 				.enter().append('g')
 					.attr('class', function (d, i) {
 						var g = d3.select(this);
+						var display = d.name.replace(/-/g, ' ')
+							.split(' ')
+							.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+							.join(' ');
+
 						g.append('text')
 							.attr('x', 0)
 							.attr('y', 0)
-							.text(d.name);
+							.text(display);
 						return d.name + ' ' + d.type;
 					});
 
