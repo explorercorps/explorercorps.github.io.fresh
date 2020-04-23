@@ -42,8 +42,5 @@
     {"name":"ghastillia","color":"#ffd0b1"},
     {"name":"royal-protectorate-of-harsefeld","color":"#702963"},
     {"name":"hyades-rim-republic","color":"#c5cad1"},
-    {"name":"duchy-of-oriente","color":"#d2ddc4"},
-    {"name":"no-record","color":"#444"},
-    {"name":"?","color":"#444"},
-    {"name":"default","color":"#aaa"}
+    {"name":"duchy-of-oriente","color":"#d2ddc4"}
 ]

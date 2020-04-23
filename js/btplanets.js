@@ -15,6 +15,7 @@ define(['js/lib/d3.min'], function(d3) {
 		planets : null,
 		capitals : null,
 		selectedPlanets : null,
+		states : null,
 
 		// DOM  / SVG object handles
 		svg : null,
@@ -36,51 +37,6 @@ define(['js/lib/d3.min'], function(d3) {
 
 		//Colors
 		statecolors : new Map()
-			.set('terran-union', '#cccccc')
-			.set('rim-worlds-empire', '#c8c8c8')
-			.set('duchy-of-antares', '#c8c8c8')
-			.set('duchy-of-vicente', '#c8c8c8')
-			.set('colorado-empire', '#c8c8c8')
-			.set('united-hindu-collective', '#c8c8c8')
-			.set('jaipur-empire', '#c8c8c8')
-			.set('muskegon-empire', '#c8c8c8')
-			.set('duchy-of-tamarind', '#c8c8c8')
-			.set('principality-of-bolan', '#c8c8c8')
-			.set('ashio-confederation', '#c8c8c8')
-			.set('duchy-of-buckminster', '#c8c8c8')
-			.set('independent-world', '#777777')
-			.set('capellan-hegemony', '#426e33')
-			.set('interstellar-governments-council', '#5b92e5')
-			.set('mcallister-shogunate', '#cd0000')
-			.set('tikonov-union', '#ffd1d4')
-			.set('peoples-state-of-andurien', '#c9c5e2')
-			.set('filtvelt-coalition', '#ffc9a3')
-			.set('united-outworlds-republic', '#ffae00')
-			.set('marian-hegemony', '#8a0616')
-			.set('kashamarka-antisuyu', '#fff0a3')
-			.set('defhes-consolidant', '#d9e3ed')
-			.set('crucis-pact', '#9c6127')
-			.set('solar-union', '#a3a3ff')
-			.set('kilbourne-commonwealth', '#c5eed2')
-			.set('brethren-of-the-stars', '#66ccff')
-			.set('lancaster-authority', '#ddccdd')
-			.set('rengo-directorate', '#b3d2b3')
-			.set('hartshill-federal-alliance', '#e6c9cf')
-			.set('lexington-concord', '#a4c1d0')
-			.set('tamar-pact', '#d5ada3')
-			.set('peripheral-union', '#eda6f9')
-			.set('canaan-accord', '#bcbfa8')
-			.set('rim-commonality', '#a7c2aa')
-			.set('unity-of-bellatrix', '#cbe6c3')
-			.set('marik-commonwealth', '#64508d')
-			.set('saonara-dominion', '#d7c1d8')
-			.set('aurigan-coalition', '#914839')
-			.set('galdeon-directorate', '#a3a9d0')
-			.set('fsr-skye', '#b3c2dc')
-			.set('ghastillia', '#ffd0b1')
-			.set('royal-protectorate-of-harsefeld', '#702963')
-			.set('hyades-rim-republic', '#c5cad1')
-			.set('duchy-of-oriente','#d2ddc4')
 			.set('no-record','#444')
 			.set('?','#444')
 			.set('default','#aaa'),
@@ -91,6 +47,16 @@ define(['js/lib/d3.min'], function(d3) {
 		 */
 		init : function () {
 			this.isEdge = window.navigator.userAgent.indexOf("Edge") > -1;
+			d3.json('./data/states.json', function (error, json) {
+				if(error) {
+					return console.warn(error);
+				}
+				this.states = json;
+				for(var i = 0; i < this.states.length; i++){
+					this.statecolors.set(this.states[i].name,this.states[i].color);
+				}
+			}.bind(this));
+			
 			d3.json('./data/borders.json', function (error, json) {
 				if(error) {
 					return console.warn(error);
