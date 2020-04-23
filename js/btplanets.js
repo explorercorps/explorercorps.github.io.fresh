@@ -41,6 +41,8 @@ define(['js/lib/d3.min'], function(d3) {
 			.set('?','#444')
 			.set('default','#aaa'),
 
+		
+		statefromname : new Map(),
 		// functions
 		/**
 		 * Initialize the object and its components
@@ -54,38 +56,62 @@ define(['js/lib/d3.min'], function(d3) {
 				this.states = json;
 				for(var i = 0; i < this.states.length; i++){
 					this.statecolors.set(this.states[i].name,this.states[i].color);
+					this.statefromname.set(this.states[i].name,this.states[i]);
 				}
-			}.bind(this));
+				for(var i = 0; i < this.states.length; i++){
+					this.states[i].x = 0;
+					this.states[i].y = 0;
+					this.states[i].planets = 0;
+				}
+				
 			
-			d3.json('./data/borders.json', function (error, json) {
-				if(error) {
-					return console.warn(error);
-				}
-				this.borders = json;
-				d3.json('./data/systems.json', function (error, json) {
-					var cur, nb;
+				d3.json('./data/borders.json', function (error, json) {
 					if(error) {
 						return console.warn(error);
 					}
-					this.planets = json;
-					this.capitals = [];
-					for(var i = 0, len = this.planets.length; i < len; i++) {
-						this.planets[i].index = i;
-						if(this.planets[i].type === 'Capital') {
-							this.planets[i].isCapital = true;
-							this.capitals.push(this.planets[i]);
+					this.borders = json;
+
+					d3.json('./data/systems.json', function (error, json) {
+						var cur, nb;
+						if(error) {
+							return console.warn(error);
 						}
-						this.planets[i].userData = localStorage.getItem(this.planets[i].name);
-					}
-					this.selectedPlanets = [];
-					this.instantiateComponents();
-					this.onResize();
-					window.addEventListener('resize', function () {
+						this.planets = json;
+						this.capitals = [];
+						for(var i = 0, len = this.planets.length; i < len; i++) {
+							this.planets[i].index = i;
+							if(this.planets[i].type === 'Capital') {
+								this.planets[i].isCapital = true;
+								this.capitals.push(this.planets[i]);
+							}
+							this.planets[i].userData = localStorage.getItem(this.planets[i].name);
+
+							var thisState = this.statefromname.get(this.planets[i].affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-'));
+							if(thisState != null){
+								thisState.x += this.planets[i].x;
+								thisState.y += this.planets[i].y;
+								thisState.planets += 1;
+							}
+						}
+
+						for(var i = 0; i < this.states.length; i++){
+							this.states[i].x = this.states[i].x/this.states[i].planets;
+							this.states[i].y = this.states[i].y/this.states[i].planets;
+						}
+						console.log(this.states);
+
+						this.selectedPlanets = [];
+						this.instantiateComponents();
 						this.onResize();
+						window.addEventListener('resize', function () {
+							this.onResize();
+						}.bind(this));
+						this.fireEvent('initialized');
 					}.bind(this));
-					this.fireEvent('initialized');
 				}.bind(this));
 			}.bind(this));
+
+
 			d3.selectAll('#disclaimer button.close, #about button.close').on('click', function () {
 				d3.select(this.parentNode).classed('visible', false);
 			});
@@ -169,23 +195,14 @@ define(['js/lib/d3.min'], function(d3) {
 					.attr('class', function (d) { return 'border ' + d.name; });
 			var stateLabelsCt = me.svg.select('g.state-labels');
 			var stateLabels = stateLabelsCt.selectAll('g')
-					.data(me.borders)
+					.data(me.states)
 				.enter().append('g')
 					.attr('class', function (d, i) {
 						var g = d3.select(this);
-						var succ = d.type === 'successor-state';
-						var maj = d.type === 'periphery-major';
-						/*if(succ || maj) {
-							g.append('image')
-								.attr('xlink:href', './img/'+d.name.replace(/\-/g, '_')+'_64.png')
-								.attr('width', succ ? 64 : 32)
-								.attr('height', succ ? 64 : 32);
-						}*/
 						g.append('text')
-							//.attr('x', succ ? 62 : 32)
 							.attr('x', 0)
-							.attr('y', succ ? 28 : 14)
-							.text(d.display);
+							.attr('y', 0)
+							.text(d.name);
 						return d.name + ' ' + d.type;
 					});
 
@@ -613,8 +630,8 @@ define(['js/lib/d3.min'], function(d3) {
 			},
 			labelGroup : function (d, i) {
 				//i really have no idea how any of this works
-				var x = this.xScale(d.centroid[0]);
-				var y = this.yScale(d.centroid[1]);
+				var x = this.xScale(d.x);
+				var y = this.yScale(d.y);
 				if(this.isEdge) {
 					return 'translate('+x+','+y+')'
 				} else {
