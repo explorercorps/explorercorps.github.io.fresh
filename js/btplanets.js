@@ -655,44 +655,8 @@ define(['js/lib/d3.min'], function(d3) {
 				return 'translate('+this.xScale(d.x || 0)+','+this.yScale(d.y || 0) + ') scale('+this.zoom.scale()*this.pxPerLy+')';
 			},
 			labelGroup : function (d, i) {
-				var label = d3.select('g.state-labels > g.' + d.name);
-				var bbox = label.node().getBBox();
-				var wWidth = window.innerWidth;
-				var wHeight = window.innerHeight;
-				// check if a significant part of the current region is visible
-				var centroidX = this.xScale(d.centroid[0]);
-				var centroidY = this.yScale(d.centroid[1]);
-				var scale = this.zoom.scale();
-				var sizeX = d.dims ? d.dims[0] * this.pxPerLy * scale : 1;
-				var sizeY = d.dims ? d.dims[1] * this.pxPerLy * scale : 1;
-				var left = centroidX - sizeX;
-				var right = centroidX + sizeX;
-				var top = centroidY - sizeY;
-				var bottom = centroidY + sizeY;
-
-				if(right < 0 || left > wWidth
-					|| bottom < 0 || top > wHeight) {
-					label.classed('out-of-vision', true);
-				} else {
-					label.classed('out-of-vision', false);
-				}
-
-
 				var x = this.xScale(d.centroid[0]);
 				var y = this.yScale(d.centroid[1]);
-				if(left >= 0 && right <= wWidth && top >= 0 && bottom <= wHeight) {
-					x = this.xScale(d.preferredLabelPos[0]);
-					y = this.yScale(d.preferredLabelPos[1]);
-				} else {
-					x = (Math.max(0, left) + Math.min(wWidth, right)) * .5;
-					y = (Math.max(0, top) + Math.min(wHeight, bottom)) * .5;
-				}
-
-				// set label coordinates
-
-				x -= bbox.width * .5;
-				y -= bbox.height * .5;
-
 				if(this.isEdge) {
 					return 'translate('+x+','+y+')'
 				} else {
