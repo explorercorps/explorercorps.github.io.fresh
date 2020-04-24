@@ -15,6 +15,7 @@ define(['js/lib/d3.min'], function(d3) {
 		planets : null,
 		capitals : null,
 		selectedPlanets : null,
+		states : null,
 
 		// DOM  / SVG object handles
 		svg : null,
@@ -36,90 +37,80 @@ define(['js/lib/d3.min'], function(d3) {
 
 		//Colors
 		statecolors : new Map()
-			.set('terran-union', '#cccccc')
-			.set('rim-worlds-empire', '#c8c8c8')
-			.set('duchy-of-antares', '#c8c8c8')
-			.set('duchy-of-vicente', '#c8c8c8')
-			.set('colorado-empire', '#c8c8c8')
-			.set('united-hindu-collective', '#c8c8c8')
-			.set('jaipur-empire', '#c8c8c8')
-			.set('muskegon-empire', '#c8c8c8')
-			.set('duchy-of-tamarind', '#c8c8c8')
-			.set('principality-of-bolan', '#c8c8c8')
-			.set('ashio-confederation', '#c8c8c8')
-			.set('duchy-of-buckminster', '#c8c8c8')
-			.set('independent-world', '#777777')
-			.set('capellan-hegemony', '#426e33')
-			.set('interstellar-governments-council', '#5b92e5')
-			.set('mcallister-shogunate', '#cd0000')
-			.set('tikonov-union', '#ffd1d4')
-			.set('peoples-state-of-andurien', '#c9c5e2')
-			.set('filtvelt-coalition', '#ffc9a3')
-			.set('united-outworlds-republic', '#ffae00')
-			.set('marian-hegemony', '#8a0616')
-			.set('kashamarka-antisuyu', '#fff0a3')
-			.set('defhes-consolidant', '#d9e3ed')
-			.set('crucis-pact', '#9c6127')
-			.set('solar-union', '#a3a3ff')
-			.set('kilbourne-commonwealth', '#c5eed2')
-			.set('brethren-of-the-stars', '#66ccff')
-			.set('lancaster-authority', '#ddccdd')
-			.set('rengo-directorate', '#b3d2b3')
-			.set('hartshill-federal-alliance', '#e6c9cf')
-			.set('lexington-concord', '#a4c1d0')
-			.set('tamar-pact', '#d5ada3')
-			.set('peripheral-union', '#eda6f9')
-			.set('canaan-accord', '#bcbfa8')
-			.set('rim-commonality', '#a7c2aa')
-			.set('unity-of-bellatrix', '#cbe6c3')
-			.set('marik-commonwealth', '#64508d')
-			.set('saonara-dominion', '#d7c1d8')
-			.set('aurigan-coalition', '#914839')
-			.set('galdeon-directorate', '#a3a9d0')
-			.set('fsr-skye', '#b3c2dc')
-			.set('ghastillia', '#ffd0b1')
-			.set('royal-protectorate-of-harsefeld', '#702963')
-			.set('hyades-rim-republic', '#c5cad1')
-			.set('duchy-of-oriente','#d2ddc4')
 			.set('no-record','#444')
 			.set('?','#444')
 			.set('default','#aaa'),
 
+		
+		statefromname : new Map(),
 		// functions
 		/**
 		 * Initialize the object and its components
 		 */
 		init : function () {
 			this.isEdge = window.navigator.userAgent.indexOf("Edge") > -1;
-			d3.json('./data/borders.json', function (error, json) {
+			d3.json('./data/states.json', function (error, json) {
 				if(error) {
 					return console.warn(error);
 				}
-				this.borders = json;
-				d3.json('./data/systems.json', function (error, json) {
-					var cur, nb;
+				this.states = json;
+				for(var i = 0; i < this.states.length; i++){
+					this.statecolors.set(this.states[i].name,this.states[i].color);
+					this.statefromname.set(this.states[i].name,this.states[i]);
+				}
+				for(var i = 0; i < this.states.length; i++){
+					this.states[i].x = 0;
+					this.states[i].y = 0;
+					this.states[i].planets = 0;
+				}
+				
+			
+				d3.json('./data/borders.json', function (error, json) {
 					if(error) {
 						return console.warn(error);
 					}
-					this.planets = json;
-					this.capitals = [];
-					for(var i = 0, len = this.planets.length; i < len; i++) {
-						this.planets[i].index = i;
-						if(this.planets[i].type === 'Capital') {
-							this.planets[i].isCapital = true;
-							this.capitals.push(this.planets[i]);
+					this.borders = json;
+
+					d3.json('./data/systems.json', function (error, json) {
+						var cur, nb;
+						if(error) {
+							return console.warn(error);
 						}
-						this.planets[i].userData = localStorage.getItem(this.planets[i].name);
-					}
-					this.selectedPlanets = [];
-					this.instantiateComponents();
-					this.onResize();
-					window.addEventListener('resize', function () {
+						this.planets = json;
+						this.capitals = [];
+						for(var i = 0, len = this.planets.length; i < len; i++) {
+							this.planets[i].index = i;
+							if(this.planets[i].type === 'Capital') {
+								this.planets[i].isCapital = true;
+								this.capitals.push(this.planets[i]);
+							}
+							this.planets[i].userData = localStorage.getItem(this.planets[i].name);
+
+							var thisState = this.statefromname.get(this.planets[i].affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-'));
+							if(thisState != null){
+								thisState.x += this.planets[i].x;
+								thisState.y += this.planets[i].y;
+								thisState.planets += 1;
+							}
+						}
+
+						for(var i = 0; i < this.states.length; i++){
+							this.states[i].x = this.states[i].x/this.states[i].planets;
+							this.states[i].y = this.states[i].y/this.states[i].planets;
+						}
+
+						this.selectedPlanets = [];
+						this.instantiateComponents();
 						this.onResize();
+						window.addEventListener('resize', function () {
+							this.onResize();
+						}.bind(this));
+						this.fireEvent('initialized');
 					}.bind(this));
-					this.fireEvent('initialized');
 				}.bind(this));
 			}.bind(this));
+
+
 			d3.selectAll('#disclaimer button.close, #about button.close').on('click', function () {
 				d3.select(this.parentNode).classed('visible', false);
 			});
@@ -203,34 +194,21 @@ define(['js/lib/d3.min'], function(d3) {
 					.attr('class', function (d) { return 'border ' + d.name; });
 			var stateLabelsCt = me.svg.select('g.state-labels');
 			var stateLabels = stateLabelsCt.selectAll('g')
-					.data(me.borders)
+					.data(me.states)
 				.enter().append('g')
 					.attr('class', function (d, i) {
 						var g = d3.select(this);
-						var succ = d.type === 'successor-state';
-						var maj = d.type === 'periphery-major';
-						/*if(succ || maj) {
-							g.append('image')
-								.attr('xlink:href', './img/'+d.name.replace(/\-/g, '_')+'_64.png')
-								.attr('width', succ ? 64 : 32)
-								.attr('height', succ ? 64 : 32);
-						}*/
-						g.append('text')
-							//.attr('x', succ ? 62 : 32)
-							.attr('x', 0)
-							.attr('y', succ ? 28 : 14)
-							.text(d.display);
+						var display = d.name.replace(/-/g, ' ')
+							.split(' ')
+							.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+							.join(' ');
 
-						if(d.rulers) {
-							g.append('text')
-								//.attr('x', succ ? 62 : 32)
-								.attr('x', 0)
-								.attr('y', succ ? 48: 30)
-								.text(d.rulers);
-						}
+						g.append('text')
+							.attr('x', 0)
+							.attr('y', 0)
+							.text(display);
 						return d.name + ' ' + d.type;
 					});
-
 
 			var circleGroup = me.svg.select('g.planet-circles');
 
@@ -655,44 +633,9 @@ define(['js/lib/d3.min'], function(d3) {
 				return 'translate('+this.xScale(d.x || 0)+','+this.yScale(d.y || 0) + ') scale('+this.zoom.scale()*this.pxPerLy+')';
 			},
 			labelGroup : function (d, i) {
-				var label = d3.select('g.state-labels > g.' + d.name);
-				var bbox = label.node().getBBox();
-				var wWidth = window.innerWidth;
-				var wHeight = window.innerHeight;
-				// check if a significant part of the current region is visible
-				var centroidX = this.xScale(d.centroid[0]);
-				var centroidY = this.yScale(d.centroid[1]);
-				var scale = this.zoom.scale();
-				var sizeX = d.dims ? d.dims[0] * this.pxPerLy * scale : 1;
-				var sizeY = d.dims ? d.dims[1] * this.pxPerLy * scale : 1;
-				var left = centroidX - sizeX;
-				var right = centroidX + sizeX;
-				var top = centroidY - sizeY;
-				var bottom = centroidY + sizeY;
-
-				if(right < 0 || left > wWidth
-					|| bottom < 0 || top > wHeight) {
-					label.classed('out-of-vision', true);
-				} else {
-					label.classed('out-of-vision', false);
-				}
-
-
-				var x = this.xScale(d.centroid[0]);
-				var y = this.yScale(d.centroid[1]);
-				if(left >= 0 && right <= wWidth && top >= 0 && bottom <= wHeight) {
-					x = this.xScale(d.preferredLabelPos[0]);
-					y = this.yScale(d.preferredLabelPos[1]);
-				} else {
-					x = (Math.max(0, left) + Math.min(wWidth, right)) * .5;
-					y = (Math.max(0, top) + Math.min(wHeight, bottom)) * .5;
-				}
-
-				// set label coordinates
-
-				x -= bbox.width * .5;
-				y -= bbox.height * .5;
-
+				//i really have no idea how any of this works
+				var x = this.xScale(d.x);
+				var y = this.yScale(d.y);
 				if(this.isEdge) {
 					return 'translate('+x+','+y+')'
 				} else {
