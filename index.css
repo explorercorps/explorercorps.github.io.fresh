@@ -1127,15 +1127,11 @@ svg.route-hidden g.jump-routes path {
 }
 
 /* STATE LABEL STYLES */
-svg g.state-labels > g {
+svg g.state-labels{
 	opacity: 0;
 	transition: opacity .5s, transform .25s;
 }
-svg.labels-all g.state-labels > g.successor-state,
-svg.labels-successor-states g.state-labels > g.successor-state,
-svg.labels-major-powers g.state-labels > g.successor-state,
-svg.labels-major-powers.periphery-states g.state-labels > g.periphery-major,
-svg.labels-all.periphery-states g.state-labels > g {
+svg.labels-all g.state-labels {
 	opacity: 1;
 }
 svg g.state-labels > g.out-of-vision {

@@ -467,24 +467,16 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			curSetting = userdata.readUserSetting('stateLabels');
 			if(curSetting !== undefined && curSetting !== null) {
 				svg.classed('labels-all', curSetting === 'all');
-				svg.classed('labels-major-powers', curSetting === 'majorPowers');
-				svg.classed('labels-successor-states', curSetting === 'successorStates'); // default
 				switch(curSetting) {
 					case 'all':
 						curControl = d3.select('#settings_state_labels_all');
-						break;
-					case 'majorPowers':
-						curControl = d3.select('#settings_state_labels_maj');
-						break;
-					case 'successorStates':
-						curControl = d3.select('#settings_state_labels_succ');
 						break;
 					default:
 						curControl = d3.select('#settings_state_labels_none');
 				}
 				curControl.property('checked', true);
 			} else {
-				userdata.saveUserSetting('stateLabels', 'successorStates');
+				userdata.saveUserSetting('stateLabels', 'all');
 			}
 
 			// visible systems
@@ -602,26 +594,10 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 					userdata.saveUserSetting('stateFillMode', 'none');
 					break;
 				case 'settings_state_labels_all':
-					svg.classed('labels-successor-states', false);
-					svg.classed('labels-major-powers', false);
 					svg.classed('labels-all', true);
 					userdata.saveUserSetting('stateLabels', 'all');
 					break;
-				case 'settings_state_labels_maj':
-					svg.classed('labels-successor-states', false);
-					svg.classed('labels-major-powers', true);
-					svg.classed('labels-all', false);
-					userdata.saveUserSetting('stateLabels', 'majorPowers');
-					break;
-				case 'settings_state_labels_succ':
-					svg.classed('labels-successor-states', true);
-					svg.classed('labels-major-powers', false);
-					svg.classed('labels-all', false);
-					userdata.saveUserSetting('stateLabels', 'successorStates');
-					break;
 				case 'settings_state_labels_none':
-					svg.classed('labels-successor-states', false);
-					svg.classed('labels-major-powers', false);
 					svg.classed('labels-all', false);
 					userdata.saveUserSetting('stateLabels', 'none');
 					break;
