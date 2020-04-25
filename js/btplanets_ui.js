@@ -38,8 +38,11 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			//d3.select('div.controls').select('.route').select('button.submit').on('click', this.onRouteSubmit);
 			d3.select('div.controls').select('.route').selectAll('input[type=checkbox]').on('click', this.onRouteOptionToggle.bind(this));
 
+
+
 			btplanets.on('selectionchanged', this, this.onSelectionChanged);
 			btplanets.on('selectionadded', this, this.onSelectionAdded);
+			btplanets.on('zoomed', this, planetSettingsDidChange);
 		},
 
 		swallowEvent : function () {
@@ -490,20 +493,35 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 				switch(curSetting) {
 					case 'allHidden':
 						curControl = d3.select('#settings_planets_all_hidden');
+						displaySet.clear();
+						displaySet.add('capital');
+						displaySet.add('major');
+						displaySet.add('minor');
+						displaySet.add('uninhabited');
 						break;
 					case 'minors':
 						curControl = d3.select('#settings_planets_minors');
+						displaySet.clear();
+						displaySet.add('capital');
+						displaySet.add('major');
+						displaySet.add('minor');
 						break;
 					case 'majors':
 						curControl = d3.select('#settings_planets_majors');
+						displaySet.clear();
+						displaySet.add('capital');
+						displaySet.add('major');
 						break;
 					case 'capitals':
 						curControl = d3.select('#settings_planets_capitals');
+						displaySet.clear();
+						displaySet.add('capital');
 						break;
 					default:
 						curControl = d3.select('#settings_planets_none');
 				}
 				curControl.property('checked', true);
+				planetSettingsDidChange();
 			} else {
 				userdata.saveUserSetting('visibleSystems', 'capitals');
 			}
@@ -1027,6 +1045,14 @@ function planetSettingsDidChange() {
 	const labels = svg.select('g.planet-names').selectAll('text')[0];
 	const zoomed = svg[0][0].className.baseVal.split(" ").includes('zoomed-in');
 
+	//delay until planets are initialized - very hacky but cant figure out how else to do it
+	if(planets.length == 0) {
+		setTimeout(() => {
+			planetSettingsDidChange()
+		  }, 100)
+		return;
+	}
+
 	for(var i = 0; i < planets.length; i++){
 		var planet = planets[i].style;
 		var classes = planets[i].className.baseVal.split(" ");
@@ -1046,7 +1072,6 @@ function planetSettingsDidChange() {
 		var label = labels[i].style;
 		var classes = labels[i].className.baseVal.split(" ");
 		label.opacity = 0;
-		console.log(classes);
 
 		if(displaySet.has(classes[0])){
 			if(classes[0] == 'minor' && !zoomed) {
@@ -1056,6 +1081,7 @@ function planetSettingsDidChange() {
 			}
 		}
 	}
+
 
 	if(displaySet.has('capital')){
 		for(var i = 0; i < rings.length; i++){

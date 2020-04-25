@@ -397,7 +397,7 @@ define(['js/lib/d3.min'], function(d3) {
 				.attr('transform', me.transformers.planetText.bind(me));
 			me.svg.classed('zoomed-in', me.zoom.scale() > me.getDetailThreshold());
 			me.fireEvent('repaint');
-
+			me.fireEvent('zoomed');
 			me.repositionLegend();
 		},
 
