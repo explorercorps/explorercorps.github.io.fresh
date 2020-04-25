@@ -1046,12 +1046,12 @@ svg g.planet-circles path.capital {
 	transition: opacity .5s;
 	stroke-width: 2;
 }
-svg.planets-all-hidden g.planet-circles circle.inhabited,
+svg.planets-all-hidden g.planet-circles circle.minor,
 svg.planets-all-hidden g.planet-circles circle.uninhabited,
 svg.planets-all-hidden g.planet-circles circle.hidden-system,
-svg.planets-all g.planet-circles circle.inhabited,
+svg.planets-all g.planet-circles circle.minor,
 svg.planets-all g.planet-circles circle.uninhabited,
-svg.planets-inhabited g.planet-circles circle.inhabited,
+svg.planets-minors g.planet-circles circle.minor,
 svg.planets-capitals g.planet-circles circle.capital,
 svg.planets-capitals.periphery-states g.planet-circles circle.periphery-capital,
 svg.planets-clans g.planet-circles circle.clan,
@@ -1065,7 +1065,7 @@ svg.route-visible g.planet-circles circle.route {
 }
 svg.planets-all-hidden g.planet-circles path.capital,
 svg.planets-all g.planet-circles path.capital,
-svg.planets-inhabited g.planet-circles path.capital,
+svg.planets-minors g.planet-circles path.capital,
 svg.planets-capitals g.planet-circles path.capital {
 	opacity: 1;
 }
@@ -1074,26 +1074,15 @@ svg.planets-userdata-highlight g.planet-circles circle.has-userdata {
 	stroke: #fc0;
 	stroke-width: 2px;
 }
-svg.planets-all-hidden g.planet-circles circle.inhabited:hover,
-svg.planets-all-hidden g.planet-circles circle.uninhabited:hover,
-svg.planets-all-hidden g.planet-circles circle.hidden-system:hover,
-svg.planets-all g.planet-circles circle.inhabited:hover,
-svg.planets-all g.planet-circles circle.uninhabited:hover,
-svg.planets-inhabited g.planet-circles circle.inhabited:hover,
-svg.planets-capitals g.planet-circles circle.capital:hover,
-svg.planets-clans g.planet-circles circle.clan:hover,
-svg g.planet-circles circle.selected:hover {
+
+
+circle.planet:hover
+{
 	stroke: #ccc;
 }
-svg.planets-all-hidden g.planet-circles circle.inhabited.selected,
-svg.planets-all-hidden g.planet-circles circle.uninhabited.selected,
-svg.planets-all-hidden g.planet-circles circle.hidden-system.selected,
-svg.planets-all g.planet-circles circle.inhabited.selected,
-svg.planets-all g.planet-circles circle.uninhabited.selected,
-svg.planets-inhabited g.planet-circles circle.inhabited.selected,
-svg.planets-capitals g.planet-circles circle.capital.selected,
-svg.planets-clans g.planet-circles circle.clan.selected,
-svg g.planet-circles circle.selected {
+
+circle.planet.selected
+{
 	stroke: #fff !important;
 	stroke-width: 3px !important;
 }
@@ -1118,16 +1107,16 @@ svg g.planet-names text {
 svg.planets-all-hidden g.planet-names text.capital,
 svg.planets-all-hidden.periphery-states g.planet-names text.periphery-capital,
 svg.planets-all-hidden.zoomed-in g.planet-names text.uninhabited,
-svg.planets-all-hidden.zoomed-in g.planet-names text.inhabited,
+svg.planets-all-hidden.zoomed-in g.planet-names text.minor,
 svg.planets-all-hidden.zoomed-in g.planet-names text.hidden-system,
 svg.planets-all.zoomed-in g.planet-names text.uninhabited,
-svg.planets-all.zoomed-in g.planet-names text.inhabited,
-svg.planets-inhabited.zoomed-in g.planet-names text.inhabited,
+svg.planets-all.zoomed-in g.planet-names text.minor,
+svg.planets-minors.zoomed-in g.planet-names text.minors,
 svg.planets-clans.zoomed-in g.planet-names text.clan,
 svg.planets-all g.planet-names text.capital,
 svg.planets-all.periphery-states g.planet-names text.periphery-capital,
-svg.planets-inhabited g.planet-names text.capital,
-svg.planets-inhabited.periphery-states g.planet-names text.periphery-capital,
+svg.planets-minors g.planet-names text.capital,
+svg.planets-minors.periphery-states g.planet-names text.periphery-capital,
 svg.planets-capitals g.planet-names text.capital,
 svg.planets-capitals.periphery-states g.planet-names text.periphery-capital,
 svg.planets-userdata-visible.zoomed-in g.planet-names text.has-userdata,

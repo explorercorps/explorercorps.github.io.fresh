@@ -226,7 +226,7 @@ define(['js/lib/d3.min'], function(d3) {
 						if(d.affiliation.toLowerCase() === 'hidden system') {
 							return 'hidden-system';
 						}
-						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-') + ' ' + d.type.toLowerCase();
+						return d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
 					.attr('fill', function (d) {
 						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-')
@@ -239,6 +239,9 @@ define(['js/lib/d3.min'], function(d3) {
 						}
 					})
 					.classed('planet', true)
+					.classed('minors',function(d){return d.type.toLowerCase() == 'minor'})
+					.classed('majors',function(d){return d.type.toLowerCase() == 'major'})
+					.classed('capital',function(d){return d.type.toLowerCase() == 'capital'})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
 					})
@@ -292,6 +295,9 @@ define(['js/lib/d3.min'], function(d3) {
 			var names = namesGroup.selectAll('text')
 					.data(me.planets)
 				.enter().append('text')
+					.attr('class', function(d) {
+						return d.type.toLowerCase();
+					})
 					.classed('planet-name', true)
 					.classed('uninhabited', function(d) {
 						return d.affiliation === '?' || d.affiliation.toLowerCase() === 'no record';
@@ -301,16 +307,6 @@ define(['js/lib/d3.min'], function(d3) {
 					})
 					.classed('inhabited', function(d) {
 						return d.affiliation !== '?' && d.affiliation.toLowerCase() !== 'no record' && d.affiliation.toLowerCase() !== 'hidden system';
-					})
-					.classed('clan', function(d) {
-						return d.affiliation.toLowerCase().indexOf('clan') !== -1;
-					})
-					.classed('capital', function (d) {
-						return d.type == 'Capital'
-					})
-					.classed('periphery-capital', function (d) {
-						var name = d.name.toLowerCase();
-						return d.type == 'Major'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;

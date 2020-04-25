@@ -490,18 +490,19 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			if(curSetting !== undefined && curSetting !== null) {
 				svg.classed('planets-capitals', curSetting === 'capitals'); // default
 				svg.classed('planets-hidden', curSetting === 'none');
-				svg.classed('planets-inhabited', curSetting === 'inhabited');
+				svg.classed('planets-majors', curSetting === 'majors');
+				svg.classed('planets-minors', curSetting === 'minors');
 				svg.classed('planets-all', curSetting === 'all');
 				svg.classed('planets-all-hidden', curSetting === 'allHidden');
 				switch(curSetting) {
 					case 'allHidden':
 						curControl = d3.select('#settings_planets_all_hidden');
 						break;
-					case 'all':
-						curControl = d3.select('#settings_planets_all');
+					case 'minors':
+						curControl = d3.select('#settings_planets_minors');
 						break;
-					case 'inhabited':
-						curControl = d3.select('#settings_planets_inhabited');
+					case 'majors':
+						curControl = d3.select('#settings_planets_majors');
 						break;
 					case 'capitals':
 						curControl = d3.select('#settings_planets_capitals');
@@ -615,7 +616,8 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 				case 'settings_planets_none':
 					svg.classed('planets-hidden', true);
 					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', false);
+					svg.classed('planets-majors',false);
+					svg.classed('planets-minors', false);
 					svg.classed('planets-all', false);
 					svg.classed('planets-all-hidden', false);
 					userdata.saveUserSetting('visibleSystems', 'none');
@@ -623,31 +625,35 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 				case 'settings_planets_capitals':
 					svg.classed('planets-hidden', false);
 					svg.classed('planets-capitals', true);
-					svg.classed('planets-inhabited', false);
+					svg.classed('planets-majors',false);
+					svg.classed('planets-minors', false);
 					svg.classed('planets-all', false);
 					svg.classed('planets-all-hidden', false);
 					userdata.saveUserSetting('visibleSystems', 'capitals');
 					break;
-				case 'settings_planets_inhabited':
+				case 'settings_planets_majors':
 					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', true);
+					svg.classed('planets-capitals', true);
+					svg.classed('planets-majors',true);
+					svg.classed('planets-minors', false);
 					svg.classed('planets-all', false);
 					svg.classed('planets-all-hidden', false);
-					userdata.saveUserSetting('visibleSystems', 'inhabited');
+					userdata.saveUserSetting('visibleSystems', 'majors');
 					break;
-				case 'settings_planets_all':
+				case 'settings_planets_minors':
 					svg.classed('planets-hidden', false);
 					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', false);
-					svg.classed('planets-all', true);
+					svg.classed('planets-majors',false);
+					svg.classed('planets-minors', true);
+					svg.classed('planets-all', false);
 					svg.classed('planets-all-hidden', false);
-					userdata.saveUserSetting('visibleSystems', 'all');
+					userdata.saveUserSetting('visibleSystems', 'minors');
 					break;
 				case 'settings_planets_all_hidden':
 					svg.classed('planets-hidden', false);
 					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', false);
+					svg.classed('planets-majors',false);
+					svg.classed('planets-minors', false);
 					svg.classed('planets-all', false);
 					svg.classed('planets-all-hidden', true);
 					userdata.saveUserSetting('visibleSystems', 'allHidden');
