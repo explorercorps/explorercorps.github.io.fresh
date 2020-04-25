@@ -239,8 +239,8 @@ define(['js/lib/d3.min'], function(d3) {
 						}
 					})
 					.classed('planet', true)
-					.classed('minors',function(d){return d.type.toLowerCase() == 'minor'})
-					.classed('majors',function(d){return d.type.toLowerCase() == 'major'})
+					.classed('minor',function(d){return d.type.toLowerCase() == 'minor'})
+					.classed('major',function(d){return d.type.toLowerCase() == 'major'})
 					.classed('capital',function(d){return d.type.toLowerCase() == 'capital'})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
@@ -299,6 +299,9 @@ define(['js/lib/d3.min'], function(d3) {
 						return d.type.toLowerCase();
 					})
 					.classed('planet-name', true)
+					.classed('minor',function(d){return d.type.toLowerCase() == 'minor'})
+					.classed('major',function(d){return d.type.toLowerCase() == 'major'})
+					.classed('capital',function(d){return d.type.toLowerCase() == 'capital'})
 					.classed('uninhabited', function(d) {
 						return d.affiliation === '?' || d.affiliation.toLowerCase() === 'no record';
 					})

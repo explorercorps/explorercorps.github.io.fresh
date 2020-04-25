@@ -7,7 +7,6 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 		 */
 		init : function () {
 			this.restoreUserSettings();
-
 			// register listeners
 			d3.select('div.controls').on('keydown', function () {
 				d3.event.stopPropagation();
@@ -488,12 +487,6 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			// visible systems
 			curSetting = userdata.readUserSetting('visibleSystems');
 			if(curSetting !== undefined && curSetting !== null) {
-				svg.classed('planets-capitals', curSetting === 'capitals'); // default
-				svg.classed('planets-hidden', curSetting === 'none');
-				svg.classed('planets-majors', curSetting === 'majors');
-				svg.classed('planets-minors', curSetting === 'minors');
-				svg.classed('planets-all', curSetting === 'all');
-				svg.classed('planets-all-hidden', curSetting === 'allHidden');
 				switch(curSetting) {
 					case 'allHidden':
 						curControl = d3.select('#settings_planets_all_hidden');
@@ -554,6 +547,7 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			var curVisibility;
 			var svg = d3.select('svg');
 			var val;
+			var self = this;
 			switch(this.id) {
 				case 'settings_borders':
 					val = d3.select(this).property('checked');
@@ -614,48 +608,41 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 					userdata.saveUserSetting('stateLabels', 'none');
 					break;
 				case 'settings_planets_none':
-					svg.classed('planets-hidden', true);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-majors',false);
-					svg.classed('planets-minors', false);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', false);
+					displaySet.clear();
+					planetSettingsDidChange();
+					
 					userdata.saveUserSetting('visibleSystems', 'none');
 					break;
 				case 'settings_planets_capitals':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', true);
-					svg.classed('planets-majors',false);
-					svg.classed('planets-minors', false);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', false);
+					displaySet.clear();
+					displaySet.add('capital');
+					planetSettingsDidChange();
 					userdata.saveUserSetting('visibleSystems', 'capitals');
 					break;
 				case 'settings_planets_majors':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', true);
-					svg.classed('planets-majors',true);
-					svg.classed('planets-minors', false);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', false);
+					displaySet.clear();
+					displaySet.add('capital');
+					displaySet.add('major');
+					planetSettingsDidChange();
 					userdata.saveUserSetting('visibleSystems', 'majors');
 					break;
 				case 'settings_planets_minors':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-majors',false);
-					svg.classed('planets-minors', true);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', false);
+					displaySet.clear();
+					displaySet.add('capital');
+					displaySet.add('major');
+					displaySet.add('minor');
+					planetSettingsDidChange();
+
 					userdata.saveUserSetting('visibleSystems', 'minors');
 					break;
 				case 'settings_planets_all_hidden':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-majors',false);
-					svg.classed('planets-minors', false);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', true);
+					displaySet.clear();
+					displaySet.add('capital');
+					displaySet.add('major');
+					displaySet.add('minor');
+					displaySet.add('uninhabited');
+					planetSettingsDidChange();
+
 					userdata.saveUserSetting('visibleSystems', 'allHidden');
 					break;
 				case 'settings_clan_systems':
@@ -1027,6 +1014,58 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 				btplanets.updateUserDataHighlight(i, planet);
 			}
 			userdata.scheduleUserDataSave(planet);
-		}
+		},
 	};
 });
+
+var displaySet = new Set();
+
+function planetSettingsDidChange() {
+	const svg = d3.select('svg');
+	const planets = svg.select('g.planet-circles').selectAll('circle')[0];
+	const rings = svg.select('g.planet-circles').selectAll('path.capital')[0];
+	const labels = svg.select('g.planet-names').selectAll('text')[0];
+	const zoomed = svg[0][0].className.baseVal.split(" ").includes('zoomed-in');
+
+	for(var i = 0; i < planets.length; i++){
+		var planet = planets[i].style;
+		var classes = planets[i].className.baseVal.split(" ");
+		planet.cursor = 'default';
+		planet.opacity = 0;
+		planet.pointerEvents = 'none';
+		if(displaySet.has(classes[2])){
+			if(!(classes[0] == 'uninhabited' && !displaySet.has('uninhabited'))){
+				planet.cursor = 'pointer';
+				planet.opacity = 1;
+				planet.pointerEvents = 'all';
+			}
+		}
+	}
+	
+	for(var i = 0; i < labels.length; i++){
+		var label = labels[i].style;
+		var classes = labels[i].className.baseVal.split(" ");
+		label.opacity = 0;
+		console.log(classes);
+
+		if(displaySet.has(classes[0])){
+			if(classes[0] == 'minor' && !zoomed) {
+			}
+			else if(!(classes[2] == 'uninhabited' && !displaySet.has('uninhabited'))){
+				label.opacity = 1;
+			}
+		}
+	}
+
+	if(displaySet.has('capital')){
+		for(var i = 0; i < rings.length; i++){
+			rings[i].style.opacity = 1;
+		}
+	} else {
+		for(var i = 0; i < rings.length; i++){
+			rings[i].style.opacity = 0;
+		}
+	}
+
+
+}
