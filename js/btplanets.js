@@ -223,13 +223,10 @@ define(['js/lib/d3.min'], function(d3) {
 						if(d.affiliation === '?' || d.affiliation.toLowerCase() === 'no record') {
 							return 'uninhabited';
 						}
-						if(d.affiliation.toLowerCase().indexOf('clan') !== -1) {
-							return 'clan';
-						}
 						if(d.affiliation.toLowerCase() === 'hidden system') {
 							return 'hidden-system';
 						}
-						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
+						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-') + ' ' + d.type.toLowerCase();
 					})
 					.attr('fill', function (d) {
 						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-')
@@ -242,12 +239,6 @@ define(['js/lib/d3.min'], function(d3) {
 						}
 					})
 					.classed('planet', true)
-					.classed('capital', function (d) {
-						return d.type.toLowerCase() == 'capital';
-					})
-					.classed('periphery-capital', function (d) {
-						return d.type.toLowerCase() == 'major'
-					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
 					})
