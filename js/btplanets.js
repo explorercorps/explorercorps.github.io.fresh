@@ -41,7 +41,17 @@ define(['js/lib/d3.min'], function(d3) {
 			.set('?','#444')
 			.set('default','#aaa'),
 
-		
+		//is zoomed
+		zoomed : null,
+
+		//setter
+		setZoom : function (newVal) {
+			if(this.zoomed != newVal){
+				this.fireEvent('zoomed');
+			}
+			this.zoomed = newVal;
+		},
+
 		statefromname : new Map(),
 		// functions
 		/**
@@ -397,7 +407,7 @@ define(['js/lib/d3.min'], function(d3) {
 				.attr('transform', me.transformers.planetText.bind(me));
 			me.svg.classed('zoomed-in', me.zoom.scale() > me.getDetailThreshold());
 			me.fireEvent('repaint');
-			me.fireEvent('zoomed');
+			this.setZoom(me.zoom.scale() > me.getDetailThreshold());
 			me.repositionLegend();
 		},
 
