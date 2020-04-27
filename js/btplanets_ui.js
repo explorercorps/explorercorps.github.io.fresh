@@ -7,7 +7,6 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 		 */
 		init : function () {
 			this.restoreUserSettings();
-
 			// register listeners
 			d3.select('div.controls').on('keydown', function () {
 				d3.event.stopPropagation();
@@ -39,8 +38,11 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			//d3.select('div.controls').select('.route').select('button.submit').on('click', this.onRouteSubmit);
 			d3.select('div.controls').select('.route').selectAll('input[type=checkbox]').on('click', this.onRouteOptionToggle.bind(this));
 
+
+
 			btplanets.on('selectionchanged', this, this.onSelectionChanged);
 			btplanets.on('selectionadded', this, this.onSelectionAdded);
+			btplanets.on('zoomed', this, planetSettingsDidChange);
 		},
 
 		swallowEvent : function () {
@@ -465,51 +467,53 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			curSetting = userdata.readUserSetting('stateLabels');
 			if(curSetting !== undefined && curSetting !== null) {
 				svg.classed('labels-all', curSetting === 'all');
-				svg.classed('labels-major-powers', curSetting === 'majorPowers');
-				svg.classed('labels-successor-states', curSetting === 'successorStates'); // default
 				switch(curSetting) {
 					case 'all':
 						curControl = d3.select('#settings_state_labels_all');
-						break;
-					case 'majorPowers':
-						curControl = d3.select('#settings_state_labels_maj');
-						break;
-					case 'successorStates':
-						curControl = d3.select('#settings_state_labels_succ');
 						break;
 					default:
 						curControl = d3.select('#settings_state_labels_none');
 				}
 				curControl.property('checked', true);
 			} else {
-				userdata.saveUserSetting('stateLabels', 'successorStates');
+				userdata.saveUserSetting('stateLabels', 'all');
 			}
 
 			// visible systems
 			curSetting = userdata.readUserSetting('visibleSystems');
 			if(curSetting !== undefined && curSetting !== null) {
-				svg.classed('planets-capitals', curSetting === 'capitals'); // default
-				svg.classed('planets-hidden', curSetting === 'none');
-				svg.classed('planets-inhabited', curSetting === 'inhabited');
-				svg.classed('planets-all', curSetting === 'all');
-				svg.classed('planets-all-hidden', curSetting === 'allHidden');
 				switch(curSetting) {
 					case 'allHidden':
 						curControl = d3.select('#settings_planets_all_hidden');
+						displaySet.clear();
+						displaySet.add('capital');
+						displaySet.add('major');
+						displaySet.add('minor');
+						displaySet.add('uninhabited');
 						break;
-					case 'all':
-						curControl = d3.select('#settings_planets_all');
+					case 'minors':
+						curControl = d3.select('#settings_planets_minors');
+						displaySet.clear();
+						displaySet.add('capital');
+						displaySet.add('major');
+						displaySet.add('minor');
 						break;
-					case 'inhabited':
-						curControl = d3.select('#settings_planets_inhabited');
+					case 'majors':
+						curControl = d3.select('#settings_planets_majors');
+						displaySet.clear();
+						displaySet.add('capital');
+						displaySet.add('major');
 						break;
 					case 'capitals':
 						curControl = d3.select('#settings_planets_capitals');
+						displaySet.clear();
+						displaySet.add('capital');
 						break;
 					default:
 						curControl = d3.select('#settings_planets_none');
 				}
 				curControl.property('checked', true);
+				planetSettingsDidChange();
 			} else {
 				userdata.saveUserSetting('visibleSystems', 'capitals');
 			}
@@ -553,6 +557,7 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			var curVisibility;
 			var svg = d3.select('svg');
 			var val;
+			var self = this;
 			switch(this.id) {
 				case 'settings_borders':
 					val = d3.select(this).property('checked');
@@ -589,67 +594,49 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 					userdata.saveUserSetting('stateFillMode', 'none');
 					break;
 				case 'settings_state_labels_all':
-					svg.classed('labels-successor-states', false);
-					svg.classed('labels-major-powers', false);
 					svg.classed('labels-all', true);
 					userdata.saveUserSetting('stateLabels', 'all');
 					break;
-				case 'settings_state_labels_maj':
-					svg.classed('labels-successor-states', false);
-					svg.classed('labels-major-powers', true);
-					svg.classed('labels-all', false);
-					userdata.saveUserSetting('stateLabels', 'majorPowers');
-					break;
-				case 'settings_state_labels_succ':
-					svg.classed('labels-successor-states', true);
-					svg.classed('labels-major-powers', false);
-					svg.classed('labels-all', false);
-					userdata.saveUserSetting('stateLabels', 'successorStates');
-					break;
 				case 'settings_state_labels_none':
-					svg.classed('labels-successor-states', false);
-					svg.classed('labels-major-powers', false);
 					svg.classed('labels-all', false);
 					userdata.saveUserSetting('stateLabels', 'none');
 					break;
 				case 'settings_planets_none':
-					svg.classed('planets-hidden', true);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', false);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', false);
+					displaySet.clear();
+					planetSettingsDidChange();
+					
 					userdata.saveUserSetting('visibleSystems', 'none');
 					break;
 				case 'settings_planets_capitals':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', true);
-					svg.classed('planets-inhabited', false);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', false);
+					displaySet.clear();
+					displaySet.add('capital');
+					planetSettingsDidChange();
 					userdata.saveUserSetting('visibleSystems', 'capitals');
 					break;
-				case 'settings_planets_inhabited':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', true);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', false);
-					userdata.saveUserSetting('visibleSystems', 'inhabited');
+				case 'settings_planets_majors':
+					displaySet.clear();
+					displaySet.add('capital');
+					displaySet.add('major');
+					planetSettingsDidChange();
+					userdata.saveUserSetting('visibleSystems', 'majors');
 					break;
-				case 'settings_planets_all':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', false);
-					svg.classed('planets-all', true);
-					svg.classed('planets-all-hidden', false);
-					userdata.saveUserSetting('visibleSystems', 'all');
+				case 'settings_planets_minors':
+					displaySet.clear();
+					displaySet.add('capital');
+					displaySet.add('major');
+					displaySet.add('minor');
+					planetSettingsDidChange();
+
+					userdata.saveUserSetting('visibleSystems', 'minors');
 					break;
 				case 'settings_planets_all_hidden':
-					svg.classed('planets-hidden', false);
-					svg.classed('planets-capitals', false);
-					svg.classed('planets-inhabited', false);
-					svg.classed('planets-all', false);
-					svg.classed('planets-all-hidden', true);
+					displaySet.clear();
+					displaySet.add('capital');
+					displaySet.add('major');
+					displaySet.add('minor');
+					displaySet.add('uninhabited');
+					planetSettingsDidChange();
+
 					userdata.saveUserSetting('visibleSystems', 'allHidden');
 					break;
 				case 'settings_clan_systems':
@@ -1021,6 +1008,66 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 				btplanets.updateUserDataHighlight(i, planet);
 			}
 			userdata.scheduleUserDataSave(planet);
-		}
+		},
 	};
 });
+
+var displaySet = new Set();
+
+function planetSettingsDidChange() {
+	const svg = d3.select('svg');
+	const planets = svg.select('g.planet-circles').selectAll('circle')[0];
+	const rings = svg.select('g.planet-circles').selectAll('path.capital')[0];
+	const labels = svg.select('g.planet-names').selectAll('text')[0];
+	const zoomed = svg[0][0].className.baseVal.split(" ").includes('zoomed-in');
+
+	//delay until planets are initialized - very hacky but cant figure out how else to do it
+	if(planets.length == 0) {
+		setTimeout(() => {
+			planetSettingsDidChange()
+		  }, 100)
+		return;
+	}
+
+	for(var i = 0; i < planets.length; i++){
+		var planet = planets[i].style;
+		var classes = planets[i].className.baseVal.split(" ");
+		planet.cursor = 'default';
+		planet.opacity = 0;
+		planet.pointerEvents = 'none';
+		if(displaySet.has(classes[2])){
+			if(!(classes[0] == 'uninhabited' && !displaySet.has('uninhabited'))){
+				planet.cursor = 'pointer';
+				planet.opacity = 1;
+				planet.pointerEvents = 'all';
+			}
+		}
+	}
+	
+	for(var i = 0; i < labels.length; i++){
+		var label = labels[i].style;
+		var classes = labels[i].className.baseVal.split(" ");
+		label.opacity = 0;
+
+		if(displaySet.has(classes[0])){
+			if(classes[0] == 'minor' && !zoomed) {
+			}
+			else if(!(classes[2] == 'uninhabited' && !displaySet.has('uninhabited'))){
+				label.opacity = 1;
+			}
+		}
+	}
+
+
+	if(displaySet.has('capital')){
+		for(var i = 0; i < rings.length; i++){
+			rings[i].style.opacity = 1;
+		}
+	} else {
+		for(var i = 0; i < rings.length; i++){
+			rings[i].style.opacity = 0;
+		}
+	}
+
+
+}

@@ -41,7 +41,17 @@ define(['js/lib/d3.min'], function(d3) {
 			.set('?','#444')
 			.set('default','#aaa'),
 
-		
+		//is zoomed
+		zoomed : null,
+
+		//setter
+		setZoom : function (newVal) {
+			if(this.zoomed != newVal){
+				this.fireEvent('zoomed');
+			}
+			this.zoomed = newVal;
+		},
+
 		statefromname : new Map(),
 		// functions
 		/**
@@ -223,13 +233,10 @@ define(['js/lib/d3.min'], function(d3) {
 						if(d.affiliation === '?' || d.affiliation.toLowerCase() === 'no record') {
 							return 'uninhabited';
 						}
-						if(d.affiliation.toLowerCase().indexOf('clan') !== -1) {
-							return 'clan';
-						}
 						if(d.affiliation.toLowerCase() === 'hidden system') {
 							return 'hidden-system';
 						}
-						return 'inhabited ' + d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
+						return d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
 					})
 					.attr('fill', function (d) {
 						const affil = d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-')
@@ -242,12 +249,9 @@ define(['js/lib/d3.min'], function(d3) {
 						}
 					})
 					.classed('planet', true)
-					.classed('capital', function (d) {
-						return d.type.toLowerCase() == 'capital';
-					})
-					.classed('periphery-capital', function (d) {
-						return d.type.toLowerCase() == 'major'
-					})
+					.classed('minor',function(d){return d.type.toLowerCase() == 'minor'})
+					.classed('major',function(d){return d.type.toLowerCase() == 'major'})
+					.classed('capital',function(d){return d.type.toLowerCase() == 'capital'})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
 					})
@@ -301,7 +305,13 @@ define(['js/lib/d3.min'], function(d3) {
 			var names = namesGroup.selectAll('text')
 					.data(me.planets)
 				.enter().append('text')
+					.attr('class', function(d) {
+						return d.type.toLowerCase();
+					})
 					.classed('planet-name', true)
+					.classed('minor',function(d){return d.type.toLowerCase() == 'minor'})
+					.classed('major',function(d){return d.type.toLowerCase() == 'major'})
+					.classed('capital',function(d){return d.type.toLowerCase() == 'capital'})
 					.classed('uninhabited', function(d) {
 						return d.affiliation === '?' || d.affiliation.toLowerCase() === 'no record';
 					})
@@ -310,16 +320,6 @@ define(['js/lib/d3.min'], function(d3) {
 					})
 					.classed('inhabited', function(d) {
 						return d.affiliation !== '?' && d.affiliation.toLowerCase() !== 'no record' && d.affiliation.toLowerCase() !== 'hidden system';
-					})
-					.classed('clan', function(d) {
-						return d.affiliation.toLowerCase().indexOf('clan') !== -1;
-					})
-					.classed('capital', function (d) {
-						return d.type == 'Capital'
-					})
-					.classed('periphery-capital', function (d) {
-						var name = d.name.toLowerCase();
-						return d.type == 'Major'
 					})
 					.classed('has-userdata', function (d) {
 						return !!d.userData;
@@ -407,7 +407,7 @@ define(['js/lib/d3.min'], function(d3) {
 				.attr('transform', me.transformers.planetText.bind(me));
 			me.svg.classed('zoomed-in', me.zoom.scale() > me.getDetailThreshold());
 			me.fireEvent('repaint');
-
+			this.setZoom(me.zoom.scale() > me.getDetailThreshold());
 			me.repositionLegend();
 		},
 
