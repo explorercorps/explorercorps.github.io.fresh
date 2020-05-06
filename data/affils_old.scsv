@@ -1,0 +1,887 @@
+state,planet,type,year
+Terran Union,Terra,Capital,
+Terran Union,Dieron,Minor,
+Terran Union,Altair,Minor,
+Terran Union,Saffel,Minor,
+Terran Union,Fomalhaut,Minor,
+Terran Union,Thorin,Minor,
+Terran Union,Chara,Minor,
+Terran Union,Lipton,Minor,
+Terran Union,Zavijava,Minor,
+Terran Union,Denebola,Minor,
+Terran Union,New Earth,Minor,
+Terran Union,Rigil Kentarus,Minor,
+Terran Union,Caph,Minor,
+Terran Union,Northwind,Minor,
+Terran Union,Zosma,Minor,
+Terran Union,Oliver,Minor,
+Terran Union,Alula Australis,Minor,
+Terran Union,Sirius,Minor,
+Terran Union,Graham IV,Minor,
+Terran Union,Procyon,Minor,
+Terran Union,Keid,Minor,
+Terran Union,Castor,Minor,
+Terran Union,Pollux,Minor,
+Terran Union,Devil's Rock,Minor,
+Terran Union,Talitha,Minor,
+Terran Union,Van Diemen IV,Minor,
+Terran Union,Hall,Minor,
+Terran Union,Carver,Minor,
+Terran Union,Outreach,Minor,
+Terran Union,Elgin,Minor,
+Terran Union,Hsien,Minor,
+Terran Union,Capolla,Minor,
+Terran Union,Terra Firma,Minor,
+Terran Union,Acamar,Minor,
+Terran Union,Woodstock,Minor,
+Terran Union,Bharat,Minor,
+Terran Union,Nopah,Minor,
+Terran Union,Kawich,Minor,
+Terran Union,Ruchbah,Minor,
+Terran Union,Fletcher (CC),Minor,
+Terran Union,Ingress,Minor,
+Terran Union,Small World,Minor,
+Terran Union,Sheratan,Minor,
+Terran Union,Epsilon Eridani,Minor,
+Terran Union,Epsilon Indi,Minor,
+Terran Union,Bryant,Minor,
+Terran Union,New Home,Minor,
+Terran Union,Xi Ursae Majoris,Minor,
+Independent world,Newtown Square,Major,
+Independent world,Melissia,Major,
+Independent world,Butler,Major,
+Independent world,Canal,Major,
+Independent world,La Grave,Major,
+Independent world,Rastaban,Major,
+Independent world,Gunzburg,Major,
+Independent world,Radstadt,Major,
+Independent world,Alshain,Major,
+Independent world,Avon,Major,
+Independent world,Chatham,Major,
+Independent world,Sertar,Major,
+Independent world,Dneiper,Major,
+Independent world,Arc-Royal,Major,
+Independent world,Arcturus,Major,
+Independent world,Halfway,Major,
+Independent world,Dar-es-Salaam,Major,
+Independent world,Summer,Major,
+Independent world,Vega,Major,
+Independent world,Sabik,Major,
+Independent world,Kessel,Major,
+Independent world,Nirasaki,Major,
+Independent world,Quentin,Major,
+Independent world,Al Na'ir,Major,
+Independent world,Ozawa,Major,
+Independent world,Arkab,Major,
+Independent world,Proserpina,Major,
+Independent world,Bryceland,Major,
+Independent world,Anjin Muerto,Major,
+Independent world,Crofton,Major,
+Independent world,Point Barrow,Major,
+Independent world,Wernke,Major,
+Independent world,Kathil,Major,
+Independent world,Novaya Zemlya,Major,
+Independent world,New Aragon,Major,
+Independent world,Liao,Major,
+Independent world,Asuncion,Major,
+Independent world,Nova Roma,Major,
+Independent world,Loric,Major,
+Independent world,Cavanaugh II,Major,
+Independent world,Timbiqui,Major,
+Independent world,Silver,Major,
+Independent world,Malagrotta,Major,
+Independent world,New Syrtis,Major,
+Independent world,Midale,Major,
+Independent world,Sirdar,Major,
+Independent world,Grand Base,Major,
+Independent world,Betelgeuse,Major,
+Independent world,New Roland,Major,
+Independent world,Niops,Major,
+Rim Worlds Empire,Kwangjong-ni,Major,
+Rim Worlds Empire,Ma'anshan,Minor,
+Rim Worlds Empire,Issaba,Minor,
+Rim Worlds Empire,Tainjin,Minor,
+Rim Worlds Empire,Qanatir,Minor,
+Rim Worlds Empire,Lost,Minor,
+Rim Worlds Empire,Niangol,Minor,
+Duchy of Antares,Antares,Major,
+Duchy of Antares,Baker 3,Minor,
+Duchy of Antares,Parakoila,Minor,
+Duchy of Antares,Mkuranga,Minor,
+Duchy of Antares,Babaeski,Minor,
+Duchy of Antares,Graus,Minor,
+Duchy of Antares,Sudenten,Minor,
+Duchy of Antares,Yeguas,Minor,
+Duchy of Antares,Morges,Minor,
+Duchy of Antares,A Place,Minor,
+Duchy of Antares,Dustball,Minor,
+Duchy of Antares,Blair Atholl,Minor,
+Duchy of Vicente,Vicente,Major,
+Duchy of Vicente,Cerulean,Minor,
+Duchy of Vicente,Bluford,Minor,
+Duchy of Vicente,Weldon,Minor,
+Duchy of Vicente,Xenia,Minor,
+Duchy of Vicente,Kettering,Minor,
+Duchy of Vicente,Defiance,Minor,
+Duchy of Vicente,Perdido,Minor,
+Colorado Empire,Colorado,Major,
+Colorado Empire,Gulkana,Minor,
+Colorado Empire,Sparrevohn,Minor,
+Colorado Empire,Nunivak,Minor,
+Colorado Empire,Tatlawiksuk,Minor,
+Colorado Empire,Kotzebue,Minor,
+Colorado Empire,Noatak,Minor,
+Colorado Empire,Kaiyuh,Minor,
+United Hindu Collective,Islamabad,Major,
+United Hindu Collective,Darwendale,Minor,
+United Hindu Collective,Hecheng,Minor,
+United Hindu Collective,Macintosh,Minor,
+United Hindu Collective,Gambarare,Minor,
+United Hindu Collective,Belaire,Minor,
+United Hindu Collective,As Samik,Minor,
+United Hindu Collective,Basantapur,Minor,
+United Hindu Collective,Panpour,Major,
+United Hindu Collective,Songgang,Minor,
+United Hindu Collective,Tentativa,Minor,
+Jaipur Empire,Jaipur,Major,
+Jaipur Empire,Narellan,Minor,
+Jaipur Empire,Beenleigh,Minor,
+Jaipur Empire,Avigait,Minor,
+Jaipur Empire,Safe Port,Minor,
+Jaipur Empire,Bacum,Minor,
+Jaipur Empire,Aucara,Minor,
+Jaipur Empire,Taygeta,Minor,
+Jaipur Empire,Cotocallao,Minor,
+Jaipur Empire,Abruzzi,Minor,
+Jaipur Empire,Ashley,Minor,
+Jaipur Empire,Mandaree,Minor,
+Muskegon Empire,Muskegon,Major,
+Muskegon Empire,Amiga,Minor,
+Muskegon Empire,McHenry,Minor,
+Muskegon Empire,Goshen,Minor,
+Muskegon Empire,Scudder,Minor,
+Muskegon Empire,Ulan Batar,Minor,
+Muskegon Empire,Tecumseh,Minor,
+Muskegon Empire,Beten Kaitos,Minor,
+Muskegon Empire,Emerson,Minor,
+Muskegon Empire,Farwell,Minor,
+Duchy of Tamarind,Tamarind,Major,
+Duchy of Tamarind,Millungera,Minor,
+Duchy of Tamarind,Labouchere,Minor,
+Duchy of Tamarind,Saltillo,Minor,
+Duchy of Tamarind,Kosciusko,Minor,
+Duchy of Tamarind,Diamantina,Minor,
+Duchy of Tamarind,Loongana,Minor,
+Principality of Bolan,Bolan,Major,
+Principality of Bolan,Zdice,Minor,
+Principality of Bolan,Herzberg,Minor,
+Principality of Bolan,Gypsum,Minor,
+Principality of Bolan,Finsterwalde,Minor,
+Principality of Bolan,Bobruisk,Minor,
+Principality of Bolan,Ellijay,Minor,
+Principality of Bolan,Loburg,Minor,
+Principality of Bolan,Maisons,Minor,
+Principality of Bolan,Kamenz,Minor,
+Ashio Confederation,Ashio,Major,
+Ashio Confederation,Dabih,Minor,
+Ashio Confederation,Albali,Minor,
+Ashio Confederation,Piedmont,Minor,
+Ashio Confederation,Shimonita,Minor,
+Ashio Confederation,Waddesdon,Minor,
+Ashio Confederation,Chichibu,Minor,
+Ashio Confederation,Yance I,Minor,
+Ashio Confederation,Shinonoi,Minor,
+Duchy of Buckminster,Buckminster,Major,
+Duchy of Buckminster,Trolloc Prime,Minor,
+Duchy of Buckminster,Camlann (DC),Minor,
+Duchy of Buckminster,Port Moseby,Minor,
+Duchy of Buckminster,Accrington,Minor,
+Duchy of Buckminster,Aubisson,Minor,
+Duchy of Buckminster,Shionoha,Minor,
+Duchy of Buckminster,Tsukude,Minor,
+Capellan Hegemony,Capella,Capital,3029
+Capellan Hegemony,Sarna,Major,3029
+Capellan Hegemony,Randar,Major,3029
+Capellan Hegemony,Bora,Major,3029
+Capellan Hegemony,Geifer,Major,3029
+Capellan Hegemony,Lesalles,Minor,3029
+Capellan Hegemony,Bandora,Minor,3029
+Capellan Hegemony,Cordiagr,Minor,3029
+Capellan Hegemony,Aldertaine,Minor,3029
+Capellan Hegemony,Revelow,Minor,3029
+Capellan Hegemony,No Return,Minor,3029
+Capellan Hegemony,Truth,Minor,3029
+Capellan Hegemony,Kaifeng,Minor,3029
+Capellan Hegemony,Sakhalin (CC),Minor,3029
+Capellan Hegemony,Palos,Minor,3029
+Capellan Hegemony,Ulan Bator,Minor,3029
+Capellan Hegemony,Quemoy,Minor,3029
+Capellan Hegemony,Yunnah,Minor,3029
+Capellan Hegemony,Raballa,Minor,3029
+Capellan Hegemony,Sarmaxa,Minor,3029
+Capellan Hegemony,Minnacora,Minor,3030
+Capellan Hegemony,Ares,Minor,3030
+Capellan Hegemony,New Sagan,Minor,3030
+Capellan Hegemony,Gei-Fu,Minor,3030
+Interstellar Governments Council,New Dallas,Capital,3029
+Interstellar Governments Council,Terrelibre,Major,3029
+Interstellar Governments Council,Irian,Major,3029
+Interstellar Governments Council,Kalidasa,Major,3029
+Interstellar Governments Council,Nanking,Major,3029
+Interstellar Governments Council,Savannah,Minor,3029
+Interstellar Governments Council,Wasat,Minor,3029
+Interstellar Governments Council,Acubens,Minor,3029
+Interstellar Governments Council,Aldebaran,Minor,3029
+Interstellar Governments Council,Alhena,Minor,3029
+Interstellar Governments Council,Berenson,Minor,3029
+Interstellar Governments Council,Bordon,Minor,3029
+Interstellar Governments Council,Connaught,Minor,3029
+Interstellar Governments Council,Dieudonné,Minor,3029
+Interstellar Governments Council,New Canton,Minor,3029
+Interstellar Governments Council,Menkalinen,Minor,3029
+Interstellar Governments Council,Remulac,Minor,3029
+Interstellar Governments Council,Saiph,Minor,3029
+Interstellar Governments Council,Tall Trees,Minor,3029
+Interstellar Governments Council,Zurich,Minor,3029
+People's State of Andurien,Andurien,Capital,3029
+People's State of Andurien,Lopez,Major,3029
+People's State of Andurien,Mosiro,Major,3029
+People's State of Andurien,Villanueva,Major,3029
+People's State of Andurien,Shiro III,Major,3029
+People's State of Andurien,Kanata,Minor,3029
+People's State of Andurien,El Giza,Minor,3029
+People's State of Andurien,Hudeiba,Minor,3029
+People's State of Andurien,Deschenes,Minor,3029
+People's State of Andurien,Conqusita,Minor,3029
+People's State of Andurien,Lurgatan,Minor,3029
+People's State of Andurien,Sadurni,Minor,3029
+People's State of Andurien,Cursa,Minor,3029
+People's State of Andurien,Ryerson,Minor,3029
+People's State of Andurien,Granera,Minor,3029
+People's State of Andurien,Xanthe III,Minor,3029
+People's State of Andurien,Ingonish,Minor,3029
+People's State of Andurien,Leyda,Minor,3029
+People's State of Andurien,Fagerholm,Minor,3029
+People's State of Andurien,Piriapolis,Minor,3029
+McAllister Shogunate,Pesht,Capital,3029
+McAllister Shogunate,Labrea,Major,3029
+McAllister Shogunate,Jeronimo,Major,3029
+McAllister Shogunate,Herndon,Major,3029
+McAllister Shogunate,Unity,Major,3029
+McAllister Shogunate,Savinsville,Minor,3029
+McAllister Shogunate,Albiero,Minor,3029
+McAllister Shogunate,Wolcott,Minor,3029
+McAllister Shogunate,Bangor,Minor,3029
+McAllister Shogunate,Marshdale,Minor,3029
+McAllister Shogunate,Outer Volta,Minor,3029
+McAllister Shogunate,Juazeiro,Minor,3029
+McAllister Shogunate,Irece,Minor,3029
+McAllister Shogunate,Meinacos,Minor,3029
+McAllister Shogunate,Teniente,Minor,3029
+McAllister Shogunate,Maldonado,Minor,3029
+McAllister Shogunate,Ebensburg,Minor,3029
+McAllister Shogunate,Cheriton,Minor,3029
+McAllister Shogunate,McAlister,Minor,3029
+McAllister Shogunate,Hyner,Minor,3029
+Filtvelt Coalition,Filtvelt,Capital,3029
+Filtvelt Coalition,Jaboatao,Major,3029
+Filtvelt Coalition,Moultrie,Major,3029
+Filtvelt Coalition,Memphis,Major,3029
+Filtvelt Coalition,Skepptana,Major,3029
+Filtvelt Coalition,Cogdell,Minor,3029
+Filtvelt Coalition,Ebro,Minor,3029
+Filtvelt Coalition,Eustatius,Minor,3029
+Filtvelt Coalition,Gillingham,Minor,3029
+Filtvelt Coalition,Hephzibah,Minor,3029
+Filtvelt Coalition,Lackland,Minor,3029
+Filtvelt Coalition,Mararn,Minor,3029
+Filtvelt Coalition,Marielund,Minor,3029
+Filtvelt Coalition,Mejicanos,Minor,3029
+Filtvelt Coalition,Morven,Minor,3029
+Filtvelt Coalition,Redondo,Minor,3029
+Filtvelt Coalition,Sodertalje,Minor,3029
+Filtvelt Coalition,Vaucluse,Minor,3029
+Filtvelt Coalition,Wetumpka,Minor,3029
+Filtvelt Coalition,Broken Wheel,Minor,3029
+Filtvelt Coalition,Olindo,Minor,3029
+Filtvelt Coalition,Jesup,Minor,3029
+United Outworlds Republic,Alegro,Minor,3029
+United Outworlds Republic,Alpheratz,Major,3029
+United Outworlds Republic,Bad News,Minor,3030
+United Outworlds Republic,Banori,Minor,3029
+United Outworlds Republic,Calish,Minor,3029
+United Outworlds Republic,Crestoblus,Minor,3029
+United Outworlds Republic,Dante,Minor,3029
+United Outworlds Republic,Dindatari,Minor,3029
+United Outworlds Republic,Dormandaine,Minor,3029
+United Outworlds Republic,Jordan Wais,Minor,3029
+United Outworlds Republic,Kinkaid II,Minor,3029
+United Outworlds Republic,Loparri,Major,3029
+United Outworlds Republic,Lushann,Major,3029
+United Outworlds Republic,Mitchella,Minor,3029
+United Outworlds Republic,Morthac,Minor,3029
+United Outworlds Republic,Pitkin,Minor,3030
+United Outworlds Republic,Praxton,Minor,3029
+United Outworlds Republic,Quatre Belle,Capital,3029
+United Outworlds Republic,Quiberas,Minor,3029
+United Outworlds Republic,Ramora,Minor,3029
+United Outworlds Republic,Sevon,Major,3029
+United Outworlds Republic,Tancredi,Minor,3030
+Marian Hegemony,Alphard,Capital,3029
+Marian Hegemony,Illyria,Major,3029
+Marian Hegemony,Pompey,Major,3029
+Marian Hegemony,Suetonius,Major,3029
+Marian Hegemony,Horatius,Major,3029
+Marian Hegemony,Kogl,Major,3029
+Marian Hegemony,Algenib,Minor,3029
+Marian Hegemony,Islington,Minor,3029
+Marian Hegemony,Baccalieu,Minor,3029
+Marian Hegemony,New Venice,Minor,3029
+Marian Hegemony,Stafford,Minor,3029
+Marian Hegemony,Addhara,Minor,3029
+Marian Hegemony,Ballalaba,Minor,3029
+Marian Hegemony,Marius's Tears,Minor,3029
+Marian Hegemony,Reykavis,Minor,3029
+Marian Hegemony,Trondheimal,Minor,3029
+Marian Hegemony,Trasjkis,Minor,3029
+Marian Hegemony,Lahti,Minor,3029
+Marian Hegemony,Landfall,Minor,3029
+Marian Hegemony,Huntington,Minor,3029
+Marian Hegemony,Hazeldean,Minor,3029
+Marian Hegemony,Kendall,Minor,3029
+Marian Hegemony,Atzenbrugg,Minor,3029
+Marian Hegemony,San Nicholas,Minor,3029
+Marian Hegemony,Leparetique,Minor,3029
+Marian Hegemony,Tormentine,Minor,3029
+Kashamarka Antisuyu,Cajamarca,Capital,3029
+Kashamarka Antisuyu,Home,Major,3029
+Kashamarka Antisuyu,Ibarra,Major,3029
+Kashamarka Antisuyu,Norfolk,Major,3029
+Kashamarka Antisuyu,Ashburton,Major,3029
+Kashamarka Antisuyu,Aconcagua,Minor,3029
+Kashamarka Antisuyu,Molokai,Minor,3029
+Kashamarka Antisuyu,Clipperton,Minor,3029
+Kashamarka Antisuyu,Tuamotu,Minor,3029
+Kashamarka Antisuyu,Trinidad,Minor,3029
+Kashamarka Antisuyu,Newcastle,Minor,3029
+Kashamarka Antisuyu,Futuna,Minor,3029
+Kashamarka Antisuyu,Wallis,Minor,3029
+Kashamarka Antisuyu,Paradise,Minor,3029
+Kashamarka Antisuyu,Loyalty,Minor,3029
+Kashamarka Antisuyu,Escobas,Minor,3029
+Kashamarka Antisuyu,Shasta,Minor,3029
+Kashamarka Antisuyu,Chalouba,Minor,3029
+Kashamarka Antisuyu,Albert Falls,Minor,3029
+Kashamarka Antisuyu,Simpson Desert,Minor,3029
+Kashamarka Antisuyu,Mundrabilla,Minor,3029
+Kashamarka Antisuyu,Gibson,Minor,3029
+Kashamarka Antisuyu,Ankolika,Minor,3029
+Kashamarka Antisuyu,Atsugi,Minor,3029
+DefHes Consolidant,Hesperus,Capital,3029
+DefHes Consolidant,Furillo,Major,3029
+DefHes Consolidant,New Kyoto,Major,3029
+DefHes Consolidant,Solaris,Major,3029
+DefHes Consolidant,Rochelle,Major,3029
+DefHes Consolidant,Stewart,Major,3030
+DefHes Consolidant,Canonbie,Minor,3029
+DefHes Consolidant,Trent,Minor,3029
+DefHes Consolidant,Lamon,Minor,3029
+DefHes Consolidant,Rahne,Minor,3029
+DefHes Consolidant,Caledonia,Minor,3029
+DefHes Consolidant,Algorab,Minor,3029
+DefHes Consolidant,Laiaka,Minor,3029
+DefHes Consolidant,Alkaid,Minor,3029
+DefHes Consolidant,Carsphairn,Minor,3029
+DefHes Consolidant,Vindemiatrix,Minor,3029
+DefHes Consolidant,Zaniah,Minor,3029
+DefHes Consolidant,Alcor,Minor,3029
+DefHes Consolidant,Gacrux,Minor,3029
+DefHes Consolidant,Shiloh,Minor,3029
+DefHes Consolidant,Mizar,Minor,3029
+Kilbourne Commonwealth,Kilbourne,Capital,3029
+Kilbourne Commonwealth,Beaumont,Major,3029
+Kilbourne Commonwealth,Boondock,Major,3029
+Kilbourne Commonwealth,Farnsworth,Major,3029
+Kilbourne Commonwealth,Millray,Major,3029
+Kilbourne Commonwealth,Valasha,Minor,3029
+Kilbourne Commonwealth,Hazelhurst,Minor,3029
+Kilbourne Commonwealth,Inner End,Minor,3029
+Kilbourne Commonwealth,Delos,Minor,3029
+Kilbourne Commonwealth,Sterlington,Minor,3029
+Kilbourne Commonwealth,Stratford,Minor,3029
+Kilbourne Commonwealth,Winfield (FS),Minor,3029
+Kilbourne Commonwealth,Kountze,Minor,3029
+Kilbourne Commonwealth,Inman,Minor,3029
+Kilbourne Commonwealth,Bassfield,Minor,3029
+Kilbourne Commonwealth,Cohay,Minor,3029
+Kilbourne Commonwealth,Thibodaux,Minor,3029
+Kilbourne Commonwealth,Pattison,Minor,3029
+Kilbourne Commonwealth,Arnaudville,Minor,3029
+Kilbourne Commonwealth,Bastrop,Minor,3029
+Kilbourne Commonwealth,Tangipahoa,Minor,3029
+Kilbourne Commonwealth,Altoona,Minor,3029
+Crucis Pact,New Avalon,Capital,3029
+Crucis Pact,Galax,Major,3029
+Crucis Pact,Torrence,Major,3029
+Crucis Pact,Belladonna,Major,3029
+Crucis Pact,Delavan,Major,3029
+Crucis Pact,Augusta,Minor,3029
+Crucis Pact,Odell,Minor,3029
+Crucis Pact,Ipava,Minor,3029
+Crucis Pact,Argyle,Minor,3029
+Crucis Pact,Numenor,Minor,3029
+Crucis Pact,El Dorado,Minor,3029
+Crucis Pact,Steeles,Minor,3029
+Crucis Pact,Remagen,Minor,3029
+Crucis Pact,Bastian,Minor,3029
+Crucis Pact,Paulding,Minor,3029
+Crucis Pact,Leipsic,Minor,3029
+Crucis Pact,Manassas,Minor,3029
+Crucis Pact,Antietam,Minor,3029
+Crucis Pact,Reisterstown,Minor,3029
+Crucis Pact,Saginaw,Minor,3029
+Crucis Pact,Freisland,Minor,3030
+Crucis Pact,Northfield,Minor,3030
+Brethren of the Stars,St. Ives,Capital,3029
+Brethren of the Stars,Weekapaug,Major,3029
+Brethren of the Stars,Armaxa,Major,3029
+Brethren of the Stars,Mentasta,Major,3029
+Brethren of the Stars,Shoreham,Major,3029
+Brethren of the Stars,Daniels,Minor,3029
+Brethren of the Stars,Alcyone,Minor,3029
+Brethren of the Stars,Nashuar,Minor,3029
+Brethren of the Stars,Taga,Minor,3029
+Brethren of the Stars,Scituate,Minor,3029
+Brethren of the Stars,Kittery,Minor,3029
+Brethren of the Stars,Redfield,Minor,3029
+Brethren of the Stars,Royalston,Minor,3029
+Brethren of the Stars,Haappajarvi,Minor,3029
+Brethren of the Stars,Beid,Minor,3029
+Brethren of the Stars,Maladar,Minor,3029
+Brethren of the Stars,Tantara,Minor,3029
+Brethren of the Stars,Ambergrist,Minor,3029
+Brethren of the Stars,St. Loris,Minor,3029
+Brethren of the Stars,Spica,Minor,3029
+Brethren of the Stars,Gurnet,Minor,3029
+Brethren of the Stars,Immenstadt,Minor,3029
+Brethren of the Stars,Ikast,Minor,3029
+Lancaster Authority,An Ting,Minor,3029
+Lancaster Authority,Benet,Minor,3029
+Lancaster Authority,Bergman's Planet,Minor,3029
+Lancaster Authority,Bettendorf,Minor,3029
+Lancaster Authority,Crossing,Minor,3029
+Lancaster Authority,Dahar,Minor,3029
+Lancaster Authority,Elidere,Major,3029
+Lancaster Authority,Fairfield,Minor,3029
+Lancaster Authority,Gandy's Luck,Minor,3029
+Lancaster Authority,Glenmora,Minor,3029
+Lancaster Authority,Harrow's Sun,Minor,3029
+Lancaster Authority,Hoff,Capital,3029
+Lancaster Authority,Huan,Minor,3029
+Lancaster Authority,Igualada,Minor,3029
+Lancaster Authority,Marlowe's Rift,Minor,3029
+Lancaster Authority,Misery,Major,3029
+Lancaster Authority,New Aberdeen,Major,3029
+Lancaster Authority,Sakhara V,Major,3029
+Lancaster Authority,Tallmadge,Minor,3029
+Lancaster Authority,Thestria,Minor,3029
+Tikonov Union,Tikonov,Capital,3029
+Tikonov Union,Sonnia,Major,3029
+Tikonov Union,New Rhodes III,Major,3029
+Tikonov Union,Tigress,Major,3029
+Tikonov Union,Alpha Eridani,Major,3029
+Tikonov Union,Alrescha,Minor,3029
+Tikonov Union,Angol,Minor,3029
+Tikonov Union,Basalt,Minor,3029
+Tikonov Union,Caselton,Minor,3029
+Tikonov Union,Hean,Minor,3029
+Tikonov Union,Edwards,Minor,3029
+Tikonov Union,Elbar,Minor,3029
+Tikonov Union,Mesartim,Minor,3029
+Tikonov Union,Mira,Minor,3029
+Tikonov Union,Mirach,Minor,3029
+Tikonov Union,Rio,Minor,3029
+Tikonov Union,Ronel,Minor,3029
+Tikonov Union,Schedar,Minor,3029
+Tikonov Union,Tybalt,Minor,3029
+Tikonov Union,Yangtze,Minor,3029
+Rengo Directorate,Tok Do,Capital,3029
+Rengo Directorate,Awano,Major,3029
+Rengo Directorate,Cadiz,Major,3029
+Rengo Directorate,Mersa Matruh,Major,3029
+Rengo Directorate,Shibukawa,Major,3029
+Rengo Directorate,Otho,Minor,3029
+Rengo Directorate,Aix-la-Chapelle,Minor,3029
+Rengo Directorate,Kajikazawa,Minor,3029
+Rengo Directorate,Sutama,Minor,3029
+Rengo Directorate,Fukuroi,Minor,3029
+Rengo Directorate,Benjamin,Minor,3029
+Rengo Directorate,Saaremaa,Minor,3029
+Rengo Directorate,Helsingfors,Minor,3029
+Rengo Directorate,Tamsalu,Minor,3029
+Rengo Directorate,Osmus Saar,Minor,3029
+Rengo Directorate,Peacock,Minor,3029
+Rengo Directorate,Dover,Minor,3029
+Rengo Directorate,Dyfed,Minor,3029
+Rengo Directorate,Sakai,Minor,3029
+Rengo Directorate,Baldur,Minor,3029
+Hartshill Federal Alliance,Hartshill,Capital,3029
+Hartshill Federal Alliance,Qandahar,Major,3029
+Hartshill Federal Alliance,Aloma,Major,3029
+Hartshill Federal Alliance,Echo,Major,3029
+Hartshill Federal Alliance,Salford,Major,3029
+Hartshill Federal Alliance,Tamby,Minor,3029
+Hartshill Federal Alliance,Gravenharge,Minor,3029
+Hartshill Federal Alliance,Brihuega,Minor,3029
+Hartshill Federal Alliance,Brailsford,Minor,3029
+Hartshill Federal Alliance,Algate,Minor,3029
+Hartshill Federal Alliance,Slaithwaite,Minor,3029
+Hartshill Federal Alliance,Leyland,Minor,3029
+Hartshill Federal Alliance,Chapineria,Minor,3029
+Hartshill Federal Alliance,Espakeh,Minor,3029
+Hartshill Federal Alliance,Kamarod,Minor,3029
+Hartshill Federal Alliance,Pusht-i-rud,Minor,3029
+Hartshill Federal Alliance,Korramabad,Minor,3029
+Hartshill Federal Alliance,Ad Duwayd,Minor,3029
+Hartshill Federal Alliance,Chorley,Minor,3029
+Hartshill Federal Alliance,Nowhere,Minor,3029
+Lexington Concord,Lexington,Capital,3029
+Lexington Concord,Colchester,Major,3029
+Lexington Concord,Verde,Major,3029
+Lexington Concord,Quincy,Major,3029
+Lexington Concord,Delphos,Major,3029
+Lexington Concord,Newton,Minor,3029
+Lexington Concord,Ramona,Minor,3029
+Lexington Concord,Bellevue,Minor,3029
+Lexington Concord,Potwin,Minor,3029
+Lexington Concord,Peabody,Minor,3029
+Lexington Concord,Macomb,Minor,3029
+Lexington Concord,Larned,Minor,3029
+Lexington Concord,Evansville,Minor,3029
+Lexington Concord,Tarkio,Minor,3029
+Lexington Concord,Waunakee,Minor,3029
+Lexington Concord,Necedah,Minor,3029
+Lexington Concord,Parma,Minor,3029
+Lexington Concord,Capac,Minor,3029
+Lexington Concord,Imbrial III,Minor,3029
+Lexington Concord,Maynard,Minor,3029
+Lexington Concord,Euclid,Minor,3029
+Lexington Concord,Plymouth,Minor,3029
+Lexington Concord,Huron,Minor,3029
+Lexington Concord,Sun Prairie,Minor,3029
+Lexington Concord,Fairfax,Minor,3029
+Tamar Pact,Tamar,Capital,3029
+Tamar Pact,Moritz,Major,3029
+Tamar Pact,Ridderkerk,Major,3029
+Tamar Pact,Norn,Major,3029
+Tamar Pact,Twycross,Major,3029
+Tamar Pact,Memmingen,Minor,3029
+Tamar Pact,Weingarten,Minor,3029
+Tamar Pact,Kandis,Minor,3029
+Tamar Pact,Kufstein,Minor,3029
+Tamar Pact,Hohenems,Minor,3029
+Tamar Pact,Feltre,Minor,3029
+Tamar Pact,Basiliano,Minor,3029
+Tamar Pact,Mozirje,Minor,3029
+Tamar Pact,Planting,Minor,3029
+Tamar Pact,Harvest,Minor,3029
+Tamar Pact,Kirchbach,Minor,3029
+Tamar Pact,Csesztreg,Minor,3029
+Tamar Pact,Chateau,Minor,3029
+Tamar Pact,New Caledonia,Minor,3029
+Tamar Pact,Romulus,Minor,3029
+Tamar Pact,Svarstaad,Minor,3030
+Tamar Pact,Maxie's Planet,Minor,3030
+Solar Union,Urich,Capital,3029
+Solar Union,Adrian,Major,3029
+Solar Union,Brundage,Major,3029
+Solar Union,Mayetta,Major,3029
+Solar Union,Protection,Major,3029
+Solar Union,Ottumwa,Minor,3029
+Solar Union,Bremond,Minor,3029
+Solar Union,Pascagoula,Minor,3029
+Solar Union,Greeley,Minor,3029
+Solar Union,Milligan,Minor,3029
+Solar Union,Chanute,Minor,3029
+Solar Union,Mirage,Minor,3029
+Solar Union,Nagal,Minor,3029
+Solar Union,Benedict,Minor,3029
+Solar Union,Hickok,Minor,3029
+Solar Union,Sylvan,Minor,3029
+Solar Union,Junior,Minor,3029
+Solar Union,Morrill,Minor,3029
+Solar Union,Princton,Minor,3029
+Solar Union,Linneus,Minor,3029
+Peripherial Union,Warren,Capital,3029
+Peripherial Union,Anaheim,Major,3029
+Peripherial Union,Caldwell,Major,3029
+Peripherial Union,Firgrove,Major,3029
+Peripherial Union,Perdition,Major,3029
+Peripherial Union,Amber Grove,Minor,3029
+Peripherial Union,Brusset,Minor,3029
+Peripherial Union,Celentano,Minor,3029
+Peripherial Union,Die Moot,Minor,3029
+Peripherial Union,Drienfontein,Minor,3029
+Peripherial Union,Grossbach,Minor,3029
+Peripherial Union,Hyalite,Minor,3029
+Peripherial Union,Keuterville,Minor,3029
+Peripherial Union,Logan's Land,Minor,3029
+Peripherial Union,Lothair,Minor,3029
+Peripherial Union,Montour,Minor,3029
+Peripherial Union,Norman's World,Minor,3029
+Peripherial Union,Organo,Minor,3029
+Peripherial Union,Pierce,Minor,3029
+Peripherial Union,Weippe,Minor,3029
+Canaan Accord,Robinson,Capital,3029
+Canaan Accord,New Ivaarsen,Major,3029
+Canaan Accord,Marduk,Major,3029
+Canaan Accord,Exeter,Major,3029
+Canaan Accord,Doneval,Major,3029
+Canaan Accord,Rochester,Minor,3029
+Canaan Accord,Lucerne,Minor,3029
+Canaan Accord,Royal,Minor,3029
+Canaan Accord,Lima,Minor,3029
+Canaan Accord,McComb,Minor,3029
+Canaan Accord,Tripoli,Minor,3029
+Canaan Accord,Paris,Minor,3029
+Canaan Accord,Breed,Minor,3029
+Canaan Accord,Klathandu,Minor,3029
+Canaan Accord,Dobson,Minor,3029
+Canaan Accord,Le Blanc,Minor,3029
+Canaan Accord,Clovis,Minor,3029
+Canaan Accord,Xhosa,Minor,3029
+Canaan Accord,Raman,Minor,3029
+Canaan Accord,Olancha,Minor,3029
+Rim Commonality,Tematagi,Capital,3029
+Rim Commonality,Lesnovo,Major,3029
+Rim Commonality,Karachi,Major,3029
+Rim Commonality,Bayindir,Major,3029
+Rim Commonality,Mackenzie,Major,3029
+Rim Commonality,Tohelet,Minor,3029
+Rim Commonality,Goth Khakar,Minor,3029
+Rim Commonality,Campoleone,Minor,3029
+Rim Commonality,Negushevo,Minor,3029
+Rim Commonality,Gatchina,Minor,3029
+Rim Commonality,Ghaziabad,Minor,3029
+Rim Commonality,Mankova,Minor,3029
+Rim Commonality,Tellman's Mistake,Minor,3029
+Rim Commonality,Bismarck,Minor,3029
+Rim Commonality,Hiratsuka,Minor,3029
+Rim Commonality,Isabela,Minor,3029
+Rim Commonality,Jiddah,Minor,3029
+Rim Commonality,Rzhishchev,Minor,3029
+Rim Commonality,Westover,Minor,3029
+Rim Commonality,Karakiraz,Minor,3029
+Unity of Bellatrix,Bellatrix,Capital,3029
+Unity of Bellatrix,Victoria,Major,3029
+Unity of Bellatrix,Buenos Aires,Major,3029
+Unity of Bellatrix,Columbine,Major,3029
+Unity of Bellatrix,Turin,Major,3029
+Unity of Bellatrix,Prix,Minor,3029
+Unity of Bellatrix,Madras,Minor,3029
+Unity of Bellatrix,Menke,Minor,3029
+Unity of Bellatrix,Mitchel,Minor,3029
+Unity of Bellatrix,Kurvasa,Minor,3029
+Unity of Bellatrix,Decatur,Minor,3029
+Unity of Bellatrix,Vard,Minor,3029
+Unity of Bellatrix,Jacson,Minor,3029
+Unity of Bellatrix,Quimberton,Minor,3029
+Unity of Bellatrix,Barras,Minor,3029
+Unity of Bellatrix,Drozan,Minor,3029
+Unity of Bellatrix,Borden,Minor,3029
+Unity of Bellatrix,Egress,Minor,3029
+Unity of Bellatrix,Jacomarle,Minor,3029
+Unity of Bellatrix,Gunthar,Minor,3029
+Marik Commonwealth,Atreus,Capital,3029
+Marik Commonwealth,Marik,Major,3029
+Marik Commonwealth,Asellus Australis,Major,3029
+Marik Commonwealth,New Olympia,Major,3029
+Marik Commonwealth,Campbelton,Major,3029
+Marik Commonwealth,Alterf,Minor,3029
+Marik Commonwealth,Angell,Minor,3029
+Marik Commonwealth,Ariel,Minor,3029
+Marik Commonwealth,Asellus Borealis,Minor,3029
+Marik Commonwealth,Dickinson,Minor,3029
+Marik Commonwealth,Drusibacken,Minor,3029
+Marik Commonwealth,Ionus,Minor,3029
+Marik Commonwealth,Keystone,Minor,3029
+Marik Commonwealth,Kirkenlaard,Minor,3029
+Marik Commonwealth,Lancaster (FWL),Minor,3029
+Marik Commonwealth,Laureles,Minor,3029
+Marik Commonwealth,Manihiki,Minor,3029
+Marik Commonwealth,Oceana,Minor,3029
+Marik Commonwealth,Tongatapu,Minor,3029
+Marik Commonwealth,Washburn,Minor,3029
+Saonara Dominion,Saonara,Capital,3029
+Saonara Dominion,Scheuerheck,Major,3029
+Saonara Dominion,Ruschegg,Major,3029
+Saonara Dominion,Payvand,Major,3029
+Saonara Dominion,Meadowvale,Major,3029
+Saonara Dominion,Glevakha,Minor,3029
+Saonara Dominion,Obrenovac,Minor,3029
+Saonara Dominion,Rohinjan,Minor,3029
+Saonara Dominion,Ayn Tarma,Minor,3029
+Saonara Dominion,Skvorec,Minor,3029
+Saonara Dominion,Wisconsin,Minor,3029
+Saonara Dominion,Cap Rouge,Minor,3029
+Saonara Dominion,Watermael,Minor,3029
+Saonara Dominion,Gouderak,Minor,3029
+Saonara Dominion,Umka,Minor,3029
+Saonara Dominion,Vakarel,Minor,3029
+Saonara Dominion,Eleusis,Minor,3029
+Saonara Dominion,Bass,Minor,3029
+Saonara Dominion,Bethonolog,Minor,3029
+Aurigan Coalition,Coromodir,Capital,3029
+Aurigan Coalition,Mechdur,Major,3029
+Aurigan Coalition,Itrom,Major,3029
+Aurigan Coalition,Guldra,Major,3029
+Aurigan Coalition,Ichlangis,Major,3029
+Aurigan Coalition,Weldry,Minor,3029
+Aurigan Coalition,Fjaldr,Minor,3029
+Aurigan Coalition,Bringdam,Minor,3029
+Aurigan Coalition,Zangul,Minor,3029
+Aurigan Coalition,Enkra,Minor,3029
+Aurigan Coalition,Ryan's Fate,Minor,3029
+Aurigan Coalition,Panzyr,Minor,3029
+Aurigan Coalition,Umgard,Minor,3029
+Aurigan Coalition,Mangzhangdian,Minor,3029
+Aurigan Coalition,Smithon,Minor,3029
+Aurigan Coalition,Tyrlon,Minor,3029
+Aurigan Coalition,Heliat,Minor,3029
+Aurigan Coalition,Gangtok,Minor,3029
+Aurigan Coalition,Katinka,Minor,3029
+Aurigan Coalition,Artru,Minor,3029
+Galedon Directorate,Galedon V,Capital,3029
+Galedon Directorate,Cosenza,Major,3029
+Galedon Directorate,Nandrin,Major,3029
+Galedon Directorate,New Samarkand,Major,3029
+Galedon Directorate,Midway,Major,3030
+Galedon Directorate,Sverlovsk ,Major,3029
+Galedon Directorate,Mizunami,Minor,3029
+Galedon Directorate,Koulen,Minor,3029
+Galedon Directorate,Ban Na San,Minor,3029
+Galedon Directorate,Chinmen Tao,Minor,3029
+Galedon Directorate,Tiflis,Minor,3029
+Galedon Directorate,Keihoku,Minor,3029
+Galedon Directorate,Simferopol,Minor,3029
+Galedon Directorate,Nakaojo,Minor,3029
+Galedon Directorate,Dnepropetrovsk,Minor,3029
+Galedon Directorate,Sakuranoki,Minor,3029
+Galedon Directorate,Hachiman,Minor,3029
+Galedon Directorate,Kirei Na Niwa,Minor,3029
+Galedon Directorate,Deltzsch,Minor,3029
+Galedon Directorate,Senorbi,Minor,3029
+Galedon Directorate,Goubellat,Minor,3029
+Galedon Directorate,Monywa,Minor,3029
+Galedon Directorate,Worrell,Minor,3030
+Galedon Directorate,Isesaki,Minor,3030
+Galedon Directorate,Agematsu,Minor,3030
+Galedon Directorate,Kaznejoy,Minor,3030
+FSR Skye,Skye,Capital,3029
+FSR Skye,Alexandria,Major,3029
+FSR Skye,Kochab,Major,3029
+FSR Skye,Gladius,Major,3029
+FSR Skye,Glengarry,Major,3029
+FSR Skye,Galatea,Minor,3029
+FSR Skye,Zebebelgenubi,Minor,3029
+FSR Skye,Zebeneschamali,Minor,3029
+FSR Skye,Chaffee,Minor,3029
+FSR Skye,Alkalurops,Minor,3029
+FSR Skye,Aphecca,Minor,3029
+FSR Skye,Seginus,Minor,3029
+FSR Skye,Carnwath,Minor,3029
+FSR Skye,Izar,Minor,3029
+FSR Skye,Ryde,Minor,3029
+FSR Skye,Unukalha,Minor,3029
+FSR Skye,Syrma,Minor,3029
+FSR Skye,Freedom,Minor,3029
+FSR Skye,Yed Posterior,Minor,3029
+FSR Skye,Yed Prior,Minor,3029
+FSR Skye,Nusakan,Minor,3030
+Ghastillia,Inarcs,Capital,3029
+Ghastillia,Winter,Major,3029
+Ghastillia,Ludwigshafen,Major,3029
+Ghastillia,Timehri,Major,3029
+Ghastillia,Mahone,Major,3029
+Ghastillia,Trentham,Minor,3029
+Ghastillia,Bucklands,Minor,3029
+Ghastillia,Arluna,Minor,3029
+Ghastillia,Anembo,Minor,3029
+Ghastillia,Mandaoaaru,Minor,3029
+Ghastillia,Miquelon,Minor,3029
+Ghastillia,Brooloo,Minor,3029
+Ghastillia,Windsor,Minor,3029
+Ghastillia,Recife ,Minor,3029
+Ghastillia,Goetvil ,Minor,3029
+Ghastillia,New Capetown ,Minor,3029
+Ghastillia,Gatineau ,Minor,3029
+Ghastillia,Adelaide ,Minor,3029
+Ghastillia,Mississauga ,Minor,3029
+Ghastillia,Blumenort,Minor,3029
+Ghastillia,Kwangchowwang,Minor,3030
+Ghastillia,Medellin,Minor,3030
+Royal Protectorate of Harsefeld,Eom,Minor,3029
+Royal Protectorate of Harsefeld,Les Halles,Minor,3029
+Royal Protectorate of Harsefeld,Propus,Minor,3029
+Royal Protectorate of Harsefeld,Masterson,Minor,3029
+Royal Protectorate of Harsefeld,Carbonis,Minor,3029
+Royal Protectorate of Harsefeld,Bithinia,Minor,3029
+Royal Protectorate of Harsefeld,Ingersoll,Major,3029
+Royal Protectorate of Harsefeld,Vanra,Minor,3029
+Royal Protectorate of Harsefeld,Hassad,Major,3029
+Royal Protectorate of Harsefeld,Campertown,Minor,3029
+Royal Protectorate of Harsefeld,New Delos,Major,3029
+Royal Protectorate of Harsefeld,Harsefeld,Capital,3029
+Royal Protectorate of Harsefeld,Tsinghai,Major,3029
+Royal Protectorate of Harsefeld,Chamdo,Minor,3029
+Royal Protectorate of Harsefeld,Old Kentucky,Minor,3029
+Royal Protectorate of Harsefeld,Wazan,Minor,3029
+Royal Protectorate of Harsefeld,Phact,Minor,3029
+Royal Protectorate of Harsefeld,Second Chance,Minor,3029
+Royal Protectorate of Harsefeld,Ibstock,Minor,3029
+Royal Protectorate of Harsefeld,Ohrensen,Minor,3029
+Royal Protectorate of Harsefeld,Corey,Minor,3029
+Royal Protectorate of Harsefeld,Elnath,Minor,3029
+Royal Protectorate of Harsefeld,Ventabren,Minor,3029
+Hyades Rim Republic,New Vandenberg,Major,3029
+Hyades Rim Republic,Landmark,Major,3029
+Hyades Rim Republic,Taurus,Major,3029
+Hyades Rim Republic,MacLeod's Land,Major,3029
+Hyades Rim Republic,Jamestown,Major,3029
+Hyades Rim Republic,Rollis,Minor,3029
+Hyades Rim Republic,Bromhead,Minor,3029
+Hyades Rim Republic,Laconis,Minor,3029
+Hyades Rim Republic,Brisbane,Minor,3029
+Hyades Rim Republic,Regis Roost,Minor,3029
+Hyades Rim Republic,Flaum,Minor,3029
+Hyades Rim Republic,Burton,Minor,3029
+Hyades Rim Republic,Spitz,Minor,3029
+Hyades Rim Republic,Pinard,Minor,3029
+Hyades Rim Republic,Samantha,Minor,3029
+Hyades Rim Republic,Ishtar,Minor,3029
+Hyades Rim Republic,Jansen's Hold,Minor,3029
+Hyades Rim Republic,New Vallis,Minor,3029
+Hyades Rim Republic,New Ganymede,Minor,3029
+Hyades Rim Republic,Flannagan's Nebulea,Minor,3029
+Duchy of Oriente,Oriente,Capital,3029
+Duchy of Oriente,Fletcher,Major,3029
+Duchy of Oriente,Fujiderea,Major,3029
+Duchy of Oriente,Shenwan,Major,3029
+Duchy of Oriente,Martigues,Major,3029
+Duchy of Oriente,Iknogoro,Minor,3029
+Duchy of Oriente,Ipswich,Minor,3029
+Duchy of Oriente,Shuen Wan,Minor,3029
+Duchy of Oriente,Anegaski,Minor,3029
+Duchy of Oriente,Jasmine,Minor,3029
+Duchy of Oriente,Calloway VI,Minor,3029
+Duchy of Oriente,Loeches,Minor,3029
+Duchy of Oriente,Salur,Minor,3029
+Duchy of Oriente,Daneshmand,Minor,3029
+Duchy of Oriente,Kiyev,Minor,3029
+Duchy of Oriente,Elektrougli,Minor,3029
+Duchy of Oriente,Dayr Khuna,Minor,3029
+Duchy of Oriente,Jouques,Minor,3029
+Duchy of Oriente,Dalton,Minor,3029
+Duchy of Oriente,Milnerton,Minor,3029
+Duchy of Oriente,Nova Roma,Major,3030
+Duchy of Oriente,Kwamashu,Minor,3030
