@@ -1,4 +1,4 @@
-define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,borders) {
+define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,generateBorders) {
 	'use strict';
 
 	return {
@@ -89,7 +89,7 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,borders) {
 						this.planets = json;
 						this.capitals = [];
 						for(var i = 0, len = this.planets.length; i < len; i++) {
-							this.borders.putPlanet([this.planets[i].x,this.planets[i].y]);
+							generateBorders.putPlanet([this.planets[i].x,this.planets[i].y]);
 
 							this.planets[i].index = i;
 							if(this.planets[i].type === 'Capital') {
@@ -105,7 +105,7 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,borders) {
 								thisState.planets += 1;
 							}
 						}
-						this.borders.generateDiagram();
+						generateBorders.generateDiagram();
 						for(var i = 0; i < this.states.length; i++){
 							this.states[i].x = this.states[i].x/this.states[i].planets;
 							this.states[i].y = this.states[i].y/this.states[i].planets;
@@ -385,9 +385,14 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,borders) {
 		repositionComponents : function () {
 			var me = this;
 			var scale = me.zoom.scale();
+
 			me.svg.selectAll('path.border')
 				.attr('transform', me.transformers.borderPath.bind(me));
 
+			me.svg.selectAll('path.voronoi-border')
+				.attr('transform', me.transformers.voronoiBorder.bind(me));
+
+			
 			if(me.svg.classed('labels-successor-states')
 				|| me.svg.classed('labels-major-powers')
 				|| me.svg.classed('labels-all')) {
@@ -646,6 +651,10 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,borders) {
 			},
 			planetCircle : function (d, i) {
 				return 'translate('+this.xScale(d.x) + ',' + this.yScale(d.y) + ')';
+			},
+			voronoiBorder : function (d, i) {
+				
+				return 'translate('+this.xScale(0)+','+this.yScale(0) + ') scale('+this.zoom.scale()*this.pxPerLy+')';
 			},
 			planetText : function (d, i) {
 				var ret = 'translate(';
