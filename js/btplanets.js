@@ -39,7 +39,7 @@ define(['js/lib/d3.min'], function(d3) {
 		statecolors : new Map()
 			.set('no-record','#444')
 			.set('?','#444')
-			.set('default','#aaa'),
+			.set('default','#2e3030'),
 
 		//is zoomed
 		zoomed : null,
