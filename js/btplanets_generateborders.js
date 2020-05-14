@@ -3,6 +3,7 @@ define(['js/lib/d3.min', 'js/btplanets','node_modules/d3-delaunay/dist/d3-delaun
     return {
         points: [],
         boundaries:[-600,-600,600,600],
+        pointToState: new Map(),
         init: function() {
         },
         generateDiagram : function(){
@@ -20,20 +21,40 @@ define(['js/lib/d3.min', 'js/btplanets','node_modules/d3-delaunay/dist/d3-delaun
                 polygon = voronoi.cellPolygon(i);
                 if(polygon)
                 {
-                    polygons.push({points: polygon});
+                    polygons.push({points: polygon, center: this.points[i]});
                 }
             }
+            const me = this;
 
-            rects = d3.select('svg.map').selectAll('g.voronoi-border').data(polygons)
+            d3.json('./data/states.json', function (error, json) {
+                if(error) {
+                    return console.warn(error);
+                }
+                var statecolors = new Map();
+                statecolors.set()
+                    .set('no-record','none')
+                    .set('?','none')
+                    .set('default','none');
+                var states = json;
+                for(var i = 0; i < states.length; i++){
+                    statecolors.set(states[i].name,states[i].color);
+                }
+                d3.select('svg.map').selectAll('g.voronoi-border').data(polygons)
                 .enter().append("path")
                     .attr("d", function(d){return lineFunction(d.points)})
-                    .attr("stroke", "white")
-                    .attr("stroke-width", 1)
-                    .attr("fill", "none")
+                    .attr("stroke", "none")
+                    .attr("fill-opacity", 0.3)
+                    .attr("fill", function(d){
+                        return statecolors.get(me.pointToState.get(d.center));
+                    })
                     .classed('voronoi-border',true); 
+            });
+
+            
         },
-        putPlanet : function(point){
+        putPlanet : function(point, state){
             this.points.push(point);
+            this.pointToState.set(point,state);
         }
     }
 });
