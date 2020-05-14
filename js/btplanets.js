@@ -1,4 +1,4 @@
-define(['js/lib/d3.min'], function(d3) {
+define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,borders) {
 	'use strict';
 
 	return {
@@ -89,6 +89,8 @@ define(['js/lib/d3.min'], function(d3) {
 						this.planets = json;
 						this.capitals = [];
 						for(var i = 0, len = this.planets.length; i < len; i++) {
+							this.borders.putPlanet([this.planets[i].x,this.planets[i].y]);
+
 							this.planets[i].index = i;
 							if(this.planets[i].type === 'Capital') {
 								this.planets[i].isCapital = true;
@@ -103,7 +105,7 @@ define(['js/lib/d3.min'], function(d3) {
 								thisState.planets += 1;
 							}
 						}
-
+						this.borders.generateDiagram();
 						for(var i = 0; i < this.states.length; i++){
 							this.states[i].x = this.states[i].x/this.states[i].planets;
 							this.states[i].y = this.states[i].y/this.states[i].planets;
