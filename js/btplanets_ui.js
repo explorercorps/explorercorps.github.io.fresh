@@ -426,7 +426,7 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 				svg.classed('borders-lines', curSetting === 'true');
 				curControl.property('checked', curSetting === 'true');
 			} else {
-				userdata.saveUserSetting('stateBorders', 'true');
+				userdata.saveUserSetting('stateBorders', 'false');
 			}
 
 			// periphery states
@@ -460,7 +460,7 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 				}
 				curControl.property('checked', true);
 			} else {
-				userdata.saveUserSetting('stateFillMode', 'sigils');
+				userdata.saveUserSetting('stateFillMode', 'none');
 			}
 
 			// state labels
