@@ -1,4 +1,4 @@
-define(['js/lib/d3.min', 'js/btplanets','node_modules/d3-delaunay/dist/d3-delaunay.min'], function (d3, btplanets, d3_delaunay) {
+define(['js/lib/d3.min', 'js/btplanets','js/node_modules/d3-delaunay/dist/d3-delaunay.min'], function (d3, btplanets, d3_delaunay) {
     //I really have no idea why this code is set up like this but might as well keep it consistent
     return {
         points: [],
