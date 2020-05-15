@@ -44,10 +44,12 @@ define(['js/lib/d3.min', 'js/btplanets','js/node_modules/d3-delaunay/dist/d3-del
                     .attr("d", function(d){return lineFunction(d.points)})
                     .attr("stroke", "none")
                     .attr("fill-opacity", 0.3)
+                    .attr("pointer-events", "none")
                     .attr("fill", function(d){
                         return statecolors.get(me.pointToState.get(d.center));
                     })
-                    .classed('voronoi-border',true); 
+                    .classed('voronoi-border',true)
+                
             });
 
             

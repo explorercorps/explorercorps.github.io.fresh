@@ -112,6 +112,7 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,generateBor
 						}
 
 						this.selectedPlanets = [];
+						generateBorders.generateDiagram();
 						this.instantiateComponents();
 						this.onResize();
 						window.addEventListener('resize', function () {
@@ -157,10 +158,9 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,generateBor
 		 */
 		instantiateComponents : function () {
 			var me = this;
-
 			// instantiate DOM / SVG handles
 			me.svg = d3.select('svg.map');
-
+			
 			// instantiate D3 objects
 			me.zoom = d3.behavior.zoom()
 				.scaleExtent([me.ZOOM_FACTOR_MIN, me.ZOOM_FACTOR_MAX])
@@ -196,7 +196,7 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,generateBor
 				.scale(me.legendScale)
 				.orient('top');
 
-			generateBorders.generateDiagram();
+			
 
 			var borderCt = me.svg.select('g.borders');
 			var borders = borderCt.selectAll('path.border')
