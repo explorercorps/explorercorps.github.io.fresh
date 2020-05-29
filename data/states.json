@@ -16,7 +16,7 @@
     {"name":"interstellar-governments-council","color":"#5b92e5"},
     {"name":"mcallister-shogunate","color":"#cd0000"},
     {"name":"tikonov-union","color":"#e285ff"},
-    {"name":"peoples-state-of-andurien","color":"#c9c5e2"},
+    {"name":"peoples-state-of-andurien","color":"#2ecc06"},
     {"name":"filtvelt-coalition","color":"#ffc9a3"},
     {"name":"united-outworlds-republic","color":"#ffae00"},
     {"name":"marian-hegemony","color":"#8a0616"},
@@ -42,10 +42,14 @@
     {"name":"fsr-skye","color":"#800020"},
     {"name":"ghastillia","color":"#f7810b"},
     {"name":"royal-protectorate-of-harsefeld","color":"#702963"},
-    {"name":"hyades-rim-republic","color":"#c5cad1"},
+    {"name":"hyades-rim-republic","color":"#eff000"},
     {"name":"duchy-of-oriente","color":"#cc0609"},
     {"name":"oberon-confederation","color":"#8a0303"},
     {"name":"kingdom-of-donegal","color":"#0022ff"},
+    {"name":"kingdom-of-rasalhague","color":"#1589FF"},
     {"name":"rasalhague-commune","color":"#004b87"},
-    {"name":"communal-league-of-sudeten","color":"#a93226"}
+    {"name":"communal-league-of-sudeten","color":"#0a8a07"},
+    {"name":"comstar","color":"#e8f1ff"},
+    {"name":"azami-confederation","color":"#f0e932"},
+    {"name":"magistracy-of-canopus","color":"#f7cde6"}
 ]
