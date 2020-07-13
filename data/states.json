@@ -21,7 +21,7 @@
     {"name":"united-outworlds-republic","color":"#ffae00"},
     {"name":"marian-hegemony","color":"#8a0616"},
     {"name":"kashamarka-antisuyu","color":"#fff0a3"},
-    {"name":"defhes-consolidant","color":"#d9e3ed"},
+    {"name":"defhes-consolidant","color":"#6eeb34"},
     {"name":"crucis-pact","color":"#e6d630"},
     {"name":"solar-union","color":"#0335fc"},
     {"name":"kilbourne-commonwealth","color":"#c5eed2"},
@@ -54,5 +54,7 @@
     {"name":"magistracy-of-canopus","color":"#a1e5e1"},
     {"name":"rifter-covenant","color":"#aeeed4"},
     {"name":"stellar-sovereignty","color":"#b15385"},
-    {"name":"circinus-federation","color":"#877fef"}
+    {"name":"circinus-federation","color":"#877fef"},
+    {"name":"arcadian-free-march","color":"#ff00a2"},
+    {"name":"new-commonwealth","color":"#666666"}
 ]
