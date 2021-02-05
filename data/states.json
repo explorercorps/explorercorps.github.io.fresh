@@ -1,13 +1,18 @@
 [
     {"name":"comstar","color":"#cccccc"},
+    {"name":"aka-shogunate","color":"#990000"},
     {"name":"alphard-trading-corporation","color":"#ab5629"},
-    {"name":"principality-of-rasalhague","color":"#a4f7f4"},
-    {"name":"secretariat","color":"#5b92e5"},
-    {"name":"silence","color":"#cc0609"},
-    {"name":"heavyarmor","color":"b3d2b3"},
-    {"name":"rim-worlds-republic","color":"#cbe6c3"},
-    {"name":"shrike","color":"#eff000"},
-    {"name":"blacktron-confederation","color":"fff0a3"},
+    {"name":"blacktron-confederation","color":"#fce205"},
+    {"name":"dai-shokka-empire","color":"#ff00ff"},
     {"name":"federated-suns","color":"#e6d630"},
-    {"name":"valleron","color":"#ff00ff"}
+    {"name":"helm-siege-state","color":"#64508d"},
+    {"name":"kobayashi-shogunate-of-dieron","color":"#bf9000"},
+    {"name":"principality-of-rasalhague","color":"#a4f7f4"},
+    {"name":"rift-republic","color":"#aeeed4"},
+    {"name":"rim-worlds-republic","color":"#cbe6c3"},
+    {"name":"taurian-concordat","color":"#b22234"},
+    {"name":"masakari","color":"#52b4f9"},
+    {"name":"secretariat","color":"#5b92e5"},
+    {"name":"shrike","color":"#eff000"},
+    {"name":"valleron","color":"#fff0a3"}
 ]
