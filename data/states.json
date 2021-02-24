@@ -9,6 +9,7 @@
     {"name":"helm-siege-state","color":"#64508d"},
     {"name":"kobayashi-shogunate-of-dieron","color":"#bf9000"},
     {"name":"lyran-commonwealth","color":"#0022ff"},
+    {"name":"lussia","color":"#52b4f9"},
     {"name":"magistracy-of-canopus","color":"#2d9889"},
     {"name":"principality-of-rasalhague","color":"#a4f7f4"},
     {"name":"regulan-hegemony","color":"#134f5c"},
@@ -16,7 +17,6 @@
     {"name":"rim-worlds-republic","color":"#cbe6c3"},
     {"name":"taurian-concordat","color":"#b22234"},
     {"name":"the-golden-mandate","color":"#ffeb2c"},
-    {"name":"masakari","color":"#52b4f9"},
     {"name":"secretariat","color":"#5b92e5"},
     {"name":"shrike","color":"#eff000"},
     {"name":"valleron","color":"#fff0a3"}
