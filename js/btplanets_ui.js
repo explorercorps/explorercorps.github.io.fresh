@@ -423,8 +423,8 @@ define(['js/lib/d3.min', 'js/lib/tinymce/tinymce.min.js', 'js/btplanets', 'js/bt
 			curControl = d3.select('#settings_borders');
 			curSetting = userdata.readUserSetting('stateBorders');
 			if(curSetting !== undefined && curSetting !== null) {
-				svg.classed('borders-lines', curSetting === 'false');
-				curControl.property('checked', curSetting === 'false');
+				svg.classed('borders-lines', curSetting === 'true');
+				curControl.property('checked', curSetting === 'true');
 			} else {
 				userdata.saveUserSetting('stateBorders', 'false');
 			}
