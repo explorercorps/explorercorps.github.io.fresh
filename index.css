@@ -1095,6 +1095,12 @@ svg g.planet-names text.hidden-system {
 	/*text-shadow: 1px 1px #999;*/
 }
 
+svg g.planet-names text.depot {
+	fill: #0e0;
+	font-style: italic;
+	/*text-shadow: 1px 1px #999;*/
+}
+
 /* JUMP RANGE INDICATOR STYLES */
  svg circle.jump-range {
 	fill: transparent;
