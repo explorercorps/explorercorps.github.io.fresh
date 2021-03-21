@@ -1097,7 +1097,6 @@ svg g.planet-names text.hidden-system {
 
 svg g.planet-names text.depot {
 	fill: #0e0;
-	font-style: italic;
 	/*text-shadow: 1px 1px #999;*/
 }
 
