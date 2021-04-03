@@ -237,7 +237,7 @@ define(['js/lib/d3.min','js/btplanets_generateborders'], function(d3,generateBor
 						if(d.affiliation === '?' || d.affiliation.toLowerCase() === 'no record') {
 							return 'uninhabited';
 						}
-						if(d.affiliation.toLowerCase() === 'hidden system') {
+						if(d.affiliation.toLowerCase() === 'hidden system' || d.affiliation.toLowerCase() === 'comstar') {
 							return 'hidden-system';
 						}
 						return d.affiliation.toLowerCase().replace(/[\'\/]+/g, '').replace(/\s+/g, '-');
